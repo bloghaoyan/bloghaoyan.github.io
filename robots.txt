@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: 
+
+Sitemap: http://bloghaoyan.github.io/sitemap.xml 
