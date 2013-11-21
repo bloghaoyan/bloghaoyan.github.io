@@ -15,10 +15,10 @@ categories: LeetCode
 >You may assume that each input would have exactly one solution.
 
 ###描述：
->给定一个数组，找出其中两个数加起来等于一个目标数字。
->函数twoSum返回这两个数的索引值，其中index1小于index2。
->索引值从1开始而不是0。
->每个输入有且只有一个解。
+>给定一个数组，找出其中两个数加起来等于一个目标数字。  
+>函数twoSum返回这两个数的索引值，其中index1小于index2。  
+>索引值从1开始而不是0。  
+>每个输入有且只有一个解。  
 
 ###Input:
 >numbers={2, 7, 11, 15}, target=9
