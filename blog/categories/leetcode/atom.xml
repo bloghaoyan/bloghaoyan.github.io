@@ -4,7 +4,7 @@
   <title><![CDATA[Category: LeetCode | Hao Yan's Blog]]></title>
   <link href="http://bloghaoyan.github.io/blog/categories/leetcode/atom.xml" rel="self"/>
   <link href="http://bloghaoyan.github.io/"/>
-  <updated>2013-11-21T15:44:16+08:00</updated>
+  <updated>2013-11-21T15:55:25+08:00</updated>
   <id>http://bloghaoyan.github.io/</id>
   <author>
     <name><![CDATA[Hao Yan]]></name>
@@ -18,7 +18,7 @@
     <link href="http://bloghaoyan.github.io/blog/2013/11/21/leetcode-oj-001-two-sum/"/>
     <updated>2013-11-21T13:27:00+08:00</updated>
     <id>http://bloghaoyan.github.io/blog/2013/11/21/leetcode-oj-001-two-sum</id>
-    <content type="html"><![CDATA[<h1><a href="http://oj.leetcode.com/problems/two-sum/">LeetCode OJ 001 Two Sum</a></h1>
+    <content type="html"><![CDATA[<h2><a href="http://oj.leetcode.com/problems/two-sum/">Two Sum</a></h2>
 
 <h3>Description:</h3>
 
