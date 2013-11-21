@@ -4,7 +4,7 @@
   <title><![CDATA[Hao Yan's Blog]]></title>
   <link href="http://bloghaoyan.github.io/atom.xml" rel="self"/>
   <link href="http://bloghaoyan.github.io/"/>
-  <updated>2013-11-21T15:55:25+08:00</updated>
+  <updated>2013-11-21T15:59:16+08:00</updated>
   <id>http://bloghaoyan.github.io/</id>
   <author>
     <name><![CDATA[Hao Yan]]></name>
@@ -29,9 +29,9 @@ You may assume that each input would have exactly one solution.</p></blockquote>
 
 <h3>描述：</h3>
 
-<blockquote><p>给定一个数组，找出其中两个数加起来等于一个目标数字。
-函数twoSum返回这两个数的索引值，其中index1小于index2。
-索引值从1开始而不是0。
+<blockquote><p>给定一个数组，找出其中两个数加起来等于一个目标数字。<br/>
+函数twoSum返回这两个数的索引值，其中index1小于index2。<br/>
+索引值从1开始而不是0。<br/>
 每个输入有且只有一个解。</p></blockquote>
 
 <h3>Input:</h3>
