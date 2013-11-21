@@ -6,7 +6,7 @@ comments: true
 categories: LeetCode
 ---
 
-#[LeetCode OJ 001 Two Sum](http://oj.leetcode.com/problems/two-sum/)
+##[Two Sum](http://oj.leetcode.com/problems/two-sum/)
 
 ###Description:
 >Given an array of integers, find two numbers such that they add up to a specific target number.  
