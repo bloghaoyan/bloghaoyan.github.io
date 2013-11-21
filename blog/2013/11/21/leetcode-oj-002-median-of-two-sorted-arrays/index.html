@@ -5,7 +5,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Hao Yan's Blog</title>
+  <title>LeetCode OJ 002 Median of Two Sorted Arrays - Hao Yan's Blog</title>
   <meta name="author" content="Hao Yan">
 
   
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://bloghaoyan.github.io">
+  <link rel="canonical" href="http://bloghaoyan.github.io/blog/2013/11/21/leetcode-oj-002-median-of-two-sorted-arrays">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/bootstrap/bootstrap.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/stylesheets/bootstrap/responsive.css" media="screen, projection" rel="stylesheet" type="text/css">
@@ -89,15 +89,13 @@
 </nav>
   <div class="container">
     <div class="row-fluid">
-      <div class="span9">
-  
-  
-  
-    <article>
       
+<article class="hentry span9" role="article">
+
+  
   <header class="page-header">
     
-      <h1 class="entry-title"><a href="/blog/2013/11/21/leetcode-oj-002-median-of-two-sorted-arrays/">LeetCode OJ 002 Median of Two Sorted Arrays</a></h1>
+      <h1 class="entry-title">LeetCode OJ 002 Median of Two Sorted Arrays</h1>
     
     
       <p class="meta">
@@ -120,7 +118,7 @@
   </header>
 
 
-  <div class="entry-content"><h2><a href="http://oj.leetcode.com/problems/median-of-two-sorted-arrays/">Median of Two Sorted Arrays</a></h2>
+<div class="entry-content"><h2><a href="http://oj.leetcode.com/problems/median-of-two-sorted-arrays/">Median of Two Sorted Arrays</a></h2>
 
 <h3>Description:</h3>
 
@@ -218,22 +216,16 @@ Find the median of the two sorted arrays. The overall run time complexity should
 </span></code></pre></td></tr></table></div></figure>
 
 </div>
-  
-  
 
 
-    </article>
-  
-  
-    <article>
+  <footer>
+    <p class="meta">
       
-  <header class="page-header">
-    
-      <h1 class="entry-title"><a href="/blog/2013/11/21/leetcode-oj-001-two-sum/">LeetCode OJ 001 Two Sum</a></h1>
-    
-    
-      <p class="meta">
-        
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Hao Yan</span></span>
+
+      
 
 
 
@@ -245,134 +237,40 @@ Find the median of the two sorted arrays. The overall run time complexity should
   
 
 
-<time datetime="2013-11-21T13:27:00+08:00" pubdate data-updated="true">Nov 21<span>st</span>, 2013</time>
-        
-      </p>
+<time datetime="2013-11-21T20:59:00+08:00" pubdate data-updated="true">Nov 21<span>st</span>, 2013</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/leetcode/'>LeetCode</a>
+  
+</span>
+
+
+    </p>
     
-  </header>
-
-
-  <div class="entry-content"><h2><a href="http://oj.leetcode.com/problems/two-sum/">Two Sum</a></h2>
-
-<h3>Description:</h3>
-
-<blockquote><p>Given an array of integers, find two numbers such that they add up to a specific target number.<br/>
-The function twoSum should return indices of the two numbers such that they add up to the target, where index1 must be less than index2.<br/>
-Please note that your returned answers (both index1 and index2) are <em>not zero-based</em>.<br/>
-You may assume that each input would have exactly one solution.</p></blockquote>
-
-<h3>描述：</h3>
-
-<blockquote><p>给定一个数组，找出其中两个数加起来等于一个目标数字。<br/>
-函数twoSum返回这两个数的索引值，其中index1小于index2。<br/>
-索引值从1开始而不是0。<br/>
-每个输入有且只有一个解。</p></blockquote>
-
-<h3>Input:</h3>
-
-<blockquote><p>numbers={2, 7, 11, 15}, target=9</p></blockquote>
-
-<h3>Output:</h3>
-
-<blockquote><p>index1=1, index2=2</p></blockquote>
-
-<h3>思路</h3>
-
-<blockquote><ol>
-<li>暴力法：算法复杂度为O(n<sup>2</sup>)</li>
-<li>先排序，再二分查找：算法复杂度O(nlogn)</li>
-</ol>
-</blockquote>
-
-<h3>代码</h3>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-</pre></td><td class='code'><pre><code class='cpp'><span class='line'><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
-</span><span class='line'><span class="k">public</span><span class="o">:</span>
-</span><span class='line'>    <span class="kt">int</span> <span class="n">bSearch</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">numbers</span><span class="p">,</span> <span class="kt">int</span> <span class="n">other</span><span class="p">,</span> <span class="kt">int</span> <span class="n">low</span><span class="p">,</span> <span class="kt">int</span> <span class="n">high</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="n">low</span><span class="o">&gt;</span><span class="n">high</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>            <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
-</span><span class='line'>        <span class="p">}</span>
-</span><span class='line'>        <span class="kt">int</span> <span class="n">mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">low</span><span class="o">+</span><span class="n">high</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
-</span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="n">other</span><span class="o">==</span><span class="n">numbers</span><span class="p">[</span><span class="n">mid</span><span class="p">])</span> <span class="p">{</span>
-</span><span class='line'>            <span class="k">return</span> <span class="n">mid</span><span class="p">;</span>
-</span><span class='line'>        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">other</span><span class="o">&gt;</span><span class="n">numbers</span><span class="p">[</span><span class="n">mid</span><span class="p">])</span> <span class="p">{</span>
-</span><span class='line'>            <span class="n">bSearch</span><span class="p">(</span><span class="n">numbers</span><span class="p">,</span> <span class="n">other</span><span class="p">,</span> <span class="n">mid</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">high</span><span class="p">);</span>
-</span><span class='line'>        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-</span><span class='line'>            <span class="n">bSearch</span><span class="p">(</span><span class="n">numbers</span><span class="p">,</span> <span class="n">other</span><span class="p">,</span> <span class="n">low</span><span class="p">,</span> <span class="n">mid</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
-</span><span class='line'>        <span class="p">}</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">twoSum</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">numbers</span><span class="p">,</span> <span class="kt">int</span> <span class="n">target</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>        <span class="c1">// IMPORTANT: Please reset any member data you declared, as</span>
-</span><span class='line'>        <span class="c1">// the same Solution instance will be reused for each test case.</span>
-</span><span class='line'>        <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">backup</span> <span class="o">=</span> <span class="n">numbers</span><span class="p">;</span>
-</span><span class='line'>        <span class="n">sort</span><span class="p">(</span><span class="n">numbers</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">numbers</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
-</span><span class='line'>        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">backup</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>            <span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">bSearch</span><span class="p">(</span><span class="n">numbers</span><span class="p">,</span> <span class="n">target</span><span class="o">-</span><span class="n">backup</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="mi">0</span><span class="p">,</span> <span class="n">backup</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
-</span><span class='line'>            <span class="k">if</span><span class="p">(</span><span class="n">j</span><span class="o">!=-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>                <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">result</span><span class="p">;</span>
-</span><span class='line'>                <span class="n">result</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>
-</span><span class='line'>                <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">k</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">k</span><span class="o">&lt;</span><span class="n">backup</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">k</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>                    <span class="k">if</span><span class="p">(</span><span class="n">backup</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">==</span><span class="n">numbers</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">&amp;&amp;</span> <span class="n">k</span><span class="o">!=</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>                        <span class="n">result</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>
-</span><span class='line'>                    <span class="p">}</span>
-</span><span class='line'>                <span class="p">}</span>
-</span><span class='line'>                <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
-</span><span class='line'>            <span class="p">}</span>
-</span><span class='line'>        <span class="p">}</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'><span class="p">};</span>
-</span></code></pre></td></tr></table></div></figure>
-
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://bloghaoyan.github.io/blog/2013/11/21/leetcode-oj-002-median-of-two-sorted-arrays/" data-via="" data-counturl="http://bloghaoyan.github.io/blog/2013/11/21/leetcode-oj-002-median-of-two-sorted-arrays/" >Tweet</a>
+  
+  
+  
 </div>
-  
-  
 
+    
+    
+    <ul class="pager">
+      
+      <li class="previous"><a class="basic-alignment left"
+        href="/blog/2013/11/21/leetcode-oj-001-two-sum/" title="Previous Post:
+        LeetCode OJ 001 Two Sum">&laquo; LeetCode OJ 001 Two Sum</a></li>
+      
+      <li><a href="/blog/archives">Blog Archives</a></li>
+      
+    </ul>
+  </footer>
+</article>
 
-    </article>
-  
-  <ul class="pager">
-    
-    <li><a href="/blog/archives">Blog Archives</a></li>
-    
-  </ul>
-</div>
 <aside class="sidebar-nav span3">
   
     <section class="well">
@@ -396,6 +294,7 @@ You may assume that each input would have exactly one solution.</p></blockquote>
 
   
 </aside>
+
 
     </div>
   </div>
