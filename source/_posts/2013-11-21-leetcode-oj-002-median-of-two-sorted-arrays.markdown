@@ -5,12 +5,12 @@ date: 2013-11-21 20:59
 comments: true
 categories: LeetCode
 ---
-##[Median of Two Sorted Arrays](http://oj.leetcode.com/problems/median-of-two-sorted-arrays/)
+>[Median of Two Sorted Arrays](http://oj.leetcode.com/problems/median-of-two-sorted-arrays/)
 
 ###Description:
 >There are two sorted arrays A and B of size m and n respectively.   
 >Find the median of the two sorted arrays. The overall run time complexity should be O(log (m+n)).
-
+<!--more-->
 ###描述：
 >给定两个已排序的数组A和B，大小分别为m和n。  
 >找出这两个数组的中值。  

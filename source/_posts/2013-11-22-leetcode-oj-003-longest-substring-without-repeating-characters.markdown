@@ -5,12 +5,12 @@ date: 2013-11-22 09:01
 comments: true
 categories: LeetCode
 ---
-##[Longest Substring Without Repeating Characters](http://oj.leetcode.com/problems/longest-substring-without-repeating-characters/)
+>[Longest Substring Without Repeating Characters](http://oj.leetcode.com/problems/longest-substring-without-repeating-characters/)
 
 ###Description:
 >Given a string, find the length of the longest substring without repeating characters.  
 >For example, the longest substring without repeating letters for "abcabcbb" is "abc", which the length is 3. For "bbbbb" the longest substring is "b", with the length of 1.  
-
+<!--more-->
 ###描述：
 >给定一个字符串，找出其中无重复字符的最长子串的长度。  
 >例如，对于"abcabcbb"，无重复字符的最长子串是"abc"，它的长度是3。对于"bbbbb" ，无重复字符的最长子串是"b"，它的长度是1。  

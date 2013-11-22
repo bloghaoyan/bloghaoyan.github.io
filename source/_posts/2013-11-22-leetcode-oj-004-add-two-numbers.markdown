@@ -5,13 +5,13 @@ date: 2013-11-22 14:46
 comments: true
 categories: LeetCode
 ---
-#[Add Two Numbers](http://oj.leetcode.com/problems/add-two-numbers/)
+>[Add Two Numbers](http://oj.leetcode.com/problems/add-two-numbers/)
 
 ###Description:
 >You are given two linked lists representing two non-negative numbers.  
 >The digits are stored in reverse order and each of their nodes contain a single digit.  
 >Add the two numbers and return it as a linked list.
-
+<!--more-->
 ###描述：
 >给定两个表示两个非负数的链表。  
 >其中数字位按倒序存放，每个链表结点存放一位数字。  

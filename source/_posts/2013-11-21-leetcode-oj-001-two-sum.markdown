@@ -6,14 +6,14 @@ comments: true
 categories: LeetCode
 ---
 
-##[Two Sum](http://oj.leetcode.com/problems/two-sum/)
+>[Two Sum](http://oj.leetcode.com/problems/two-sum/)
 
 ###Description:
 >Given an array of integers, find two numbers such that they add up to a specific target number.  
 >The function twoSum should return indices of the two numbers such that they add up to the target, where index1 must be less than index2.  
 >Please note that your returned answers (both index1 and index2) are *not zero-based*.  
 >You may assume that each input would have exactly one solution.
-
+<!--more-->
 ###描述：
 >给定一个数组，找出其中两个数加起来等于一个目标数字。  
 >函数twoSum返回这两个数的索引值，其中index1小于index2。  
