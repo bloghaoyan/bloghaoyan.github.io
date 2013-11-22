@@ -4,7 +4,7 @@
   <title><![CDATA[Category: LeetCode | Hao Yan's Blog]]></title>
   <link href="http://bloghaoyan.github.io/blog/categories/leetcode/atom.xml" rel="self"/>
   <link href="http://bloghaoyan.github.io/"/>
-  <updated>2013-11-22T11:22:27+08:00</updated>
+  <updated>2013-11-22T11:28:39+08:00</updated>
   <id>http://bloghaoyan.github.io/</id>
   <author>
     <name><![CDATA[Hao Yan]]></name>
@@ -45,49 +45,35 @@ For example, the longest substring without repeating letters for &ldquo;abcabcbb
 <h3>代码</h3>
 
 <ul>
-<li><p>O(n<sup>2</sup>)方法
-```cpp
+<li>O(n<sup>2</sup>)方法
+<code>cpp
 class Solution {
 public:
-  double findMedianSortedArrays(int A[], int m, int B[], int n) {
+  int lengthOfLongestSubstring(string s) {
       // IMPORTANT: Please reset any member data you declared, as
       // the same Solution instance will be reused for each test case.
-      int mid = (m+n)/2;
-      int *temp = new int[mid+1];
-      int i = 0;
-      int j = 0;
-      int k = 0;
-      for(; i&lt;m &amp;&amp; j&lt;n &amp;&amp; k&lt;=mid; k++) {
-          if(A[i]&lt;B[j]) {
-              temp[k] = A[i++];
-          } else {
-              temp[k] = B[j++];
+      if(s=="") {
+          return 0;
+      }
+      int low = 0;
+      int len = 0;
+      int i=1;
+      for(; i&lt;s.size();i++) {
+          int pos = s.find(s[i], low);
+          if(pos&lt;=i-1) {
+              if(i-low&gt;len) {
+                  len = i-low;
+              }
+              low = pos+1;
           }
-      }</p>
-
-<pre><code>  if(i==m) {
-      for(; k&lt;=mid; k++) {
-          temp[k] = B[j++];
       }
-  } else if(j==n) {
-      for(; k&lt;=mid; k++) {
-          temp[k] = A[i++];
+      if(i-low&gt;len) {
+          len = i-low;
       }
+      return len;
   }
-  double result = 0;
-  if((m+n)%2 == 0) {
-      result = (temp[mid]+temp[mid-1])/2.0;
-  } else {
-      result = temp[mid]*1.0;
-  }
-
-  delete[] temp;
-  return result;
-</code></pre>
-
-<p>  }
 };
-```</p></li>
+</code></li>
 <li><p>O(n)方法
 ```cpp
 class Solution {
