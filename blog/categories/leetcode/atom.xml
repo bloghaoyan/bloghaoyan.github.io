@@ -4,7 +4,7 @@
   <title><![CDATA[Category: LeetCode | Hao Yan's Blog]]></title>
   <link href="http://bloghaoyan.github.io/blog/categories/leetcode/atom.xml" rel="self"/>
   <link href="http://bloghaoyan.github.io/"/>
-  <updated>2013-11-22T11:30:23+08:00</updated>
+  <updated>2013-11-22T15:12:04+08:00</updated>
   <id>http://bloghaoyan.github.io/</id>
   <author>
     <name><![CDATA[Hao Yan]]></name>
@@ -12,6 +12,163 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[LeetCode OJ 004 Add Two Numbers]]></title>
+    <link href="http://bloghaoyan.github.io/blog/2013/11/22/leetcode-oj-004-add-two-numbers/"/>
+    <updated>2013-11-22T14:46:00+08:00</updated>
+    <id>http://bloghaoyan.github.io/blog/2013/11/22/leetcode-oj-004-add-two-numbers</id>
+    <content type="html"><![CDATA[<h1><a href="http://oj.leetcode.com/problems/add-two-numbers/">Add Two Numbers</a></h1>
+
+<h3>Description:</h3>
+
+<blockquote><p>You are given two linked lists representing two non-negative numbers.<br/>
+The digits are stored in reverse order and each of their nodes contain a single digit.<br/>
+Add the two numbers and return it as a linked list.</p></blockquote>
+
+<h3>描述：</h3>
+
+<blockquote><p>给定两个表示两个非负数的链表。<br/>
+其中数字位按倒序存放，每个链表结点存放一位数字。<br/>
+将这两个数加到一起以链表形式返回。</p></blockquote>
+
+<h3>Input:</h3>
+
+<blockquote><p>(2 &ndash;> 4 &ndash;> 3) + (5 &ndash;> 6 &ndash;> 4)</p></blockquote>
+
+<h3>Output:</h3>
+
+<blockquote><p>7 &ndash;> 0 &ndash;> 8</p></blockquote>
+
+<h3>思路</h3>
+
+<blockquote><ul>
+<li>两次遍历：
+
+<blockquote><p>第一次遍历加在一块，第二次遍历处理进位。</p></blockquote></li>
+<li>一次遍历：
+
+<blockquote><p>用一个变量存放进位。</p></blockquote></li>
+</ul>
+</blockquote>
+
+<h3>代码</h3>
+
+<p>```cpp
+struct ListNode {</p>
+
+<pre><code>int val;
+ListNode *next;
+ListNode(int x) : val(x), next(NULL) {}
+</code></pre>
+
+<p>};
+```</p>
+
+<ul>
+<li>两次遍历</li>
+</ul>
+
+
+<p>```cpp
+class Solution {
+public:</p>
+
+<pre><code>ListNode *addTwoNumbers(ListNode *l1, ListNode *l2) {
+    // IMPORTANT: Please reset any member data you declared, as
+    // the same Solution instance will be reused for each test case.
+    ListNode *l = new ListNode(0);
+    ListNode *p = l;
+    ListNode *temp = NULL;
+    while(l1 &amp;&amp; l2) {
+        temp = new ListNode(l1-&gt;val+l2-&gt;val);
+        p-&gt;next = temp;
+        p = p-&gt;next;
+        l1 = l1-&gt;next;
+        l2 = l2-&gt;next;
+    }
+    while(l1) {
+        temp = new ListNode(l1-&gt;val);
+        p-&gt;next = temp;
+        p = p-&gt;next;
+        l1 = l1-&gt;next;
+    }
+    while(l2) {
+        temp = new ListNode(l2-&gt;val);
+        p-&gt;next = temp;
+        p = p-&gt;next;
+        l2 = l2-&gt;next;
+    }
+    p = l-&gt;next;
+    while(p-&gt;next) {
+        if(p-&gt;val&gt;=10) {
+            p-&gt;val %= 10;
+            p-&gt;next-&gt;val++;
+        }
+        p = p-&gt;next;
+    }
+    if(p-&gt;val&gt;=10) {
+        temp = new ListNode(p-&gt;val/10);
+        p-&gt;val %= 10;
+        p-&gt;next = temp;
+    }
+    return l-&gt;next;
+}
+</code></pre>
+
+<p>};
+```</p>
+
+<ul>
+<li>一次遍历</li>
+</ul>
+
+
+<p>```cpp
+class Solution {
+public:</p>
+
+<pre><code>ListNode *addTwoNumbers(ListNode *l1, ListNode *l2) {
+    // IMPORTANT: Please reset any member data you declared, as
+    // the same Solution instance will be reused for each test case.
+    ListNode *l = new ListNode(0);
+    ListNode *p = l;
+    ListNode *temp = NULL;
+    int carry = 0;
+    while(l1 &amp;&amp; l2) {
+        temp = new ListNode((l1-&gt;val+l2-&gt;val+carry)%10);
+        carry = (l1-&gt;val+l2-&gt;val+carry)/10;
+        p-&gt;next = temp;
+        p = p-&gt;next;
+        l1 = l1-&gt;next;
+        l2 = l2-&gt;next;
+    }
+    while(l1) {
+        temp = new ListNode((l1-&gt;val+carry)%10);
+        carry = (l1-&gt;val+carry)/10;
+        p-&gt;next = temp;
+        p = p-&gt;next;
+        l1 = l1-&gt;next;
+    }
+    while(l2) {
+        temp = new ListNode((l2-&gt;val+carry)%10);
+        carry = (l2-&gt;val+carry)/10;
+        p-&gt;next = temp;
+        p = p-&gt;next;
+        l2 = l2-&gt;next;
+    }
+    if(carry) {
+        temp = new ListNode(carry);
+        p-&gt;next = temp;
+    }
+    return l-&gt;next;
+}
+</code></pre>
+
+<p>};
+```</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[LeetCode OJ 003 Longest Substring Without Repeating Characters]]></title>
