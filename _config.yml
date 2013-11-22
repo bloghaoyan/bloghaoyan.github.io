@@ -90,15 +90,11 @@ delicious_user:
 delicious_count: 3
 
 # Disqus Comments
-disqus_short_name:
-disqus_show_comment_count: false
+disqus_short_name: bloghaoyan
+disqus_show_comment_count: true
 
 # Google Analytics
 google_analytics_tracking_id: UA-45954854-1
 
 # Facebook Like
 facebook_like: false
-
-# duoshuo comments
-duoshuo_comments: true
-duoshuo_short_name: bloghaoyan
