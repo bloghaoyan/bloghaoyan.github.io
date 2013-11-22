@@ -4,7 +4,7 @@
   <title><![CDATA[Hao Yan's Blog]]></title>
   <link href="http://bloghaoyan.github.io/atom.xml" rel="self"/>
   <link href="http://bloghaoyan.github.io/"/>
-  <updated>2013-11-22T11:28:39+08:00</updated>
+  <updated>2013-11-22T11:30:23+08:00</updated>
   <id>http://bloghaoyan.github.io/</id>
   <author>
     <name><![CDATA[Hao Yan]]></name>
@@ -84,21 +84,21 @@ For example, the longest substring without repeating letters for &ldquo;abcabcbb
 </span><span class='line'>          <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 </span><span class='line'>        <span class="p">}</span>
 </span><span class='line'>        <span class="kt">int</span> <span class="n">low</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-</span><span class='line'>        <span class="kt">int</span> <span class="n">len</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'>        <span class="kt">int</span> <span class="n">max</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 </span><span class='line'>        <span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
 </span><span class='line'>        <span class="k">for</span><span class="p">(;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">s</span><span class="p">.</span><span class="n">size</span><span class="p">();</span><span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
 </span><span class='line'>          <span class="kt">int</span> <span class="n">pos</span> <span class="o">=</span> <span class="n">s</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">low</span><span class="p">);</span>
 </span><span class='line'>          <span class="k">if</span><span class="p">(</span><span class="n">pos</span><span class="o">&lt;=</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>              <span class="k">if</span><span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="n">low</span><span class="o">&gt;</span><span class="n">len</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>                  <span class="n">len</span> <span class="o">=</span> <span class="n">i</span><span class="o">-</span><span class="n">low</span><span class="p">;</span>
+</span><span class='line'>              <span class="k">if</span><span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="n">low</span><span class="o">&gt;</span><span class="n">max</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>                  <span class="n">max</span> <span class="o">=</span> <span class="n">i</span><span class="o">-</span><span class="n">low</span><span class="p">;</span>
 </span><span class='line'>              <span class="p">}</span>
 </span><span class='line'>              <span class="n">low</span> <span class="o">=</span> <span class="n">pos</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span>
 </span><span class='line'>          <span class="p">}</span>
 </span><span class='line'>        <span class="p">}</span>
-</span><span class='line'>        <span class="k">if</span><span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="n">low</span><span class="o">&gt;</span><span class="n">len</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>          <span class="n">len</span> <span class="o">=</span> <span class="n">i</span><span class="o">-</span><span class="n">low</span><span class="p">;</span>
+</span><span class='line'>        <span class="k">if</span><span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="n">low</span><span class="o">&gt;</span><span class="n">max</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>          <span class="n">max</span> <span class="o">=</span> <span class="n">i</span><span class="o">-</span><span class="n">low</span><span class="p">;</span>
 </span><span class='line'>        <span class="p">}</span>
-</span><span class='line'>        <span class="k">return</span> <span class="n">len</span><span class="p">;</span>
+</span><span class='line'>        <span class="k">return</span> <span class="n">max</span><span class="p">;</span>
 </span><span class='line'>    <span class="p">}</span>
 </span><span class='line'><span class="p">};</span>
 </span></code></pre></td></tr></table></div></figure>

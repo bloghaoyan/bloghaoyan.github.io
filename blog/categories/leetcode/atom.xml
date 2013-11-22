@@ -4,7 +4,7 @@
   <title><![CDATA[Category: LeetCode | Hao Yan's Blog]]></title>
   <link href="http://bloghaoyan.github.io/blog/categories/leetcode/atom.xml" rel="self"/>
   <link href="http://bloghaoyan.github.io/"/>
-  <updated>2013-11-22T11:28:39+08:00</updated>
+  <updated>2013-11-22T11:30:23+08:00</updated>
   <id>http://bloghaoyan.github.io/</id>
   <author>
     <name><![CDATA[Hao Yan]]></name>
@@ -56,21 +56,21 @@ public:
           return 0;
       }
       int low = 0;
-      int len = 0;
+      int max = 0;
       int i=1;
       for(; i&lt;s.size();i++) {
           int pos = s.find(s[i], low);
           if(pos&lt;=i-1) {
-              if(i-low&gt;len) {
-                  len = i-low;
+              if(i-low&gt;max) {
+                  max = i-low;
               }
               low = pos+1;
           }
       }
-      if(i-low&gt;len) {
-          len = i-low;
+      if(i-low&gt;max) {
+          max = i-low;
       }
-      return len;
+      return max;
   }
 };
 </code></li>
