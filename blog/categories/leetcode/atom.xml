@@ -4,7 +4,7 @@
   <title><![CDATA[Category: LeetCode | Hao Yan's Blog]]></title>
   <link href="http://bloghaoyan.github.io/blog/categories/leetcode/atom.xml" rel="self"/>
   <link href="http://bloghaoyan.github.io/"/>
-  <updated>2013-11-21T21:01:00+08:00</updated>
+  <updated>2013-11-22T11:22:27+08:00</updated>
   <id>http://bloghaoyan.github.io/</id>
   <author>
     <name><![CDATA[Hao Yan]]></name>
@@ -12,6 +12,125 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[LeetCode OJ 003 Longest Substring Without Repeating Characters]]></title>
+    <link href="http://bloghaoyan.github.io/blog/2013/11/22/leetcode-oj-003-longest-substring-without-repeating-characters/"/>
+    <updated>2013-11-22T09:01:00+08:00</updated>
+    <id>http://bloghaoyan.github.io/blog/2013/11/22/leetcode-oj-003-longest-substring-without-repeating-characters</id>
+    <content type="html"><![CDATA[<h2><a href="http://oj.leetcode.com/problems/longest-substring-without-repeating-characters/">Longest Substring Without Repeating Characters</a></h2>
+
+<h3>Description:</h3>
+
+<blockquote><p>Given a string, find the length of the longest substring without repeating characters.<br/>
+For example, the longest substring without repeating letters for &ldquo;abcabcbb&rdquo; is &ldquo;abc&rdquo;, which the length is 3. For &ldquo;bbbbb&rdquo; the longest substring is &ldquo;b&rdquo;, with the length of 1.</p></blockquote>
+
+<h3>描述：</h3>
+
+<blockquote><p>给定一个字符串，找出其中无重复字符的最长子串的长度。<br/>
+例如，对于"abcabcbb"，无重复字符的最长子串是"abc"，它的长度是3。对于"bbbbb" ，无重复字符的最长子串是"b"，它的长度是1。</p></blockquote>
+
+<h3>思路</h3>
+
+<blockquote><ul>
+<li>简单思路：
+
+<blockquote><p>维护两个指针low和i，i一直向前走，low指向目前无重复字符的子串(<em>不一定是最长</em>)的起始位置。i每读入一个字符，查看其是否在low和i之间有重复，若有则计算目前子串长度是否比之前更长，然后low更新为重复位置+1，这种方法时间复杂度O(n<sup>2</sup>)。</p></blockquote></li>
+<li>更好的思路：
+
+<blockquote><p>维护一个大小为256的记录表table和两个指针low和i，table记录每个已遇到的字符的索引值，i一直向前走，low指向目前无重复字符的子串(<em>不一定是最长</em>)的起始位置。i每读入一个字符，从table中查看该字符是否之前已经出现过，若出现过且原索引在low和i之间，则计算目前子串长度是否比之前更长，然后将low更新为该字符原索引+1，将该字符的索引更新为i，这种方法时间复杂度O(n)。</p></blockquote></li>
+</ul>
+</blockquote>
+
+<h3>代码</h3>
+
+<ul>
+<li><p>O(n<sup>2</sup>)方法
+```cpp
+class Solution {
+public:
+  double findMedianSortedArrays(int A[], int m, int B[], int n) {
+      // IMPORTANT: Please reset any member data you declared, as
+      // the same Solution instance will be reused for each test case.
+      int mid = (m+n)/2;
+      int *temp = new int[mid+1];
+      int i = 0;
+      int j = 0;
+      int k = 0;
+      for(; i&lt;m &amp;&amp; j&lt;n &amp;&amp; k&lt;=mid; k++) {
+          if(A[i]&lt;B[j]) {
+              temp[k] = A[i++];
+          } else {
+              temp[k] = B[j++];
+          }
+      }</p>
+
+<pre><code>  if(i==m) {
+      for(; k&lt;=mid; k++) {
+          temp[k] = B[j++];
+      }
+  } else if(j==n) {
+      for(; k&lt;=mid; k++) {
+          temp[k] = A[i++];
+      }
+  }
+  double result = 0;
+  if((m+n)%2 == 0) {
+      result = (temp[mid]+temp[mid-1])/2.0;
+  } else {
+      result = temp[mid]*1.0;
+  }
+
+  delete[] temp;
+  return result;
+</code></pre>
+
+<p>  }
+};
+```</p></li>
+<li><p>O(n)方法
+```cpp
+class Solution {
+public:
+  int lengthOfLongestSubstring(string s) {
+      // IMPORTANT: Please reset any member data you declared, as
+      // the same Solution instance will be reused for each test case.
+      if(s==&ldquo;&rdquo;) {
+          return 0;
+      }</p>
+
+<pre><code>  int rTable[256];
+  for(int i=0; i&lt;256; i++) {
+      rTable[i] = -1;
+  }
+
+  int low = -1;
+  int max = 0;
+  int i=0;
+  for(; i&lt;s.size(); i++) {
+      if(rTable[(int)s[i]]&gt;=low) {
+          if(i-low&gt;max) {
+              max = i-low;
+          }
+          low = rTable[(int)s[i]]+1;
+      }
+      rTable[(int)s[i]] = i;
+  }
+
+  if(i-low&gt;max) {
+      max = i-low;
+  }
+
+  return max;
+</code></pre>
+
+<p>  }
+};
+```</p></li>
+</ul>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[LeetCode OJ 002 Median of Two Sorted Arrays]]></title>

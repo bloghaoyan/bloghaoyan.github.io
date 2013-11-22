@@ -4,7 +4,7 @@
   <title><![CDATA[Hao Yan's Blog]]></title>
   <link href="http://bloghaoyan.github.io/atom.xml" rel="self"/>
   <link href="http://bloghaoyan.github.io/"/>
-  <updated>2013-11-21T21:01:00+08:00</updated>
+  <updated>2013-11-22T11:22:27+08:00</updated>
   <id>http://bloghaoyan.github.io/</id>
   <author>
     <name><![CDATA[Hao Yan]]></name>
@@ -12,6 +12,199 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[LeetCode OJ 003 Longest Substring Without Repeating Characters]]></title>
+    <link href="http://bloghaoyan.github.io/blog/2013/11/22/leetcode-oj-003-longest-substring-without-repeating-characters/"/>
+    <updated>2013-11-22T09:01:00+08:00</updated>
+    <id>http://bloghaoyan.github.io/blog/2013/11/22/leetcode-oj-003-longest-substring-without-repeating-characters</id>
+    <content type="html"><![CDATA[<h2><a href="http://oj.leetcode.com/problems/longest-substring-without-repeating-characters/">Longest Substring Without Repeating Characters</a></h2>
+
+<h3>Description:</h3>
+
+<blockquote><p>Given a string, find the length of the longest substring without repeating characters.<br/>
+For example, the longest substring without repeating letters for &ldquo;abcabcbb&rdquo; is &ldquo;abc&rdquo;, which the length is 3. For &ldquo;bbbbb&rdquo; the longest substring is &ldquo;b&rdquo;, with the length of 1.</p></blockquote>
+
+<h3>描述：</h3>
+
+<blockquote><p>给定一个字符串，找出其中无重复字符的最长子串的长度。<br/>
+例如，对于&#8221;abcabcbb&#8221;，无重复字符的最长子串是&#8221;abc&#8221;，它的长度是3。对于&#8221;bbbbb&#8221; ，无重复字符的最长子串是&#8221;b&#8221;，它的长度是1。</p></blockquote>
+
+<h3>思路</h3>
+
+<blockquote><ul>
+<li>简单思路：
+
+<blockquote><p>维护两个指针low和i，i一直向前走，low指向目前无重复字符的子串(<em>不一定是最长</em>)的起始位置。i每读入一个字符，查看其是否在low和i之间有重复，若有则计算目前子串长度是否比之前更长，然后low更新为重复位置+1，这种方法时间复杂度O(n<sup>2</sup>)。</p></blockquote></li>
+<li>更好的思路：
+
+<blockquote><p>维护一个大小为256的记录表table和两个指针low和i，table记录每个已遇到的字符的索引值，i一直向前走，low指向目前无重复字符的子串(<em>不一定是最长</em>)的起始位置。i每读入一个字符，从table中查看该字符是否之前已经出现过，若出现过且原索引在low和i之间，则计算目前子串长度是否比之前更长，然后将low更新为该字符原索引+1，将该字符的索引更新为i，这种方法时间复杂度O(n)。</p></blockquote></li>
+</ul>
+</blockquote>
+
+<h3>代码</h3>
+
+<ul>
+<li>O(n<sup>2</sup>)方法</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+</pre></td><td class='code'><pre><code class='cpp'><span class='line'><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+</span><span class='line'><span class="k">public</span><span class="o">:</span>
+</span><span class='line'>    <span class="kt">double</span> <span class="n">findMedianSortedArrays</span><span class="p">(</span><span class="kt">int</span> <span class="n">A</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">m</span><span class="p">,</span> <span class="kt">int</span> <span class="n">B</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="c1">// IMPORTANT: Please reset any member data you declared, as</span>
+</span><span class='line'>        <span class="c1">// the same Solution instance will be reused for each test case.</span>
+</span><span class='line'>        <span class="kt">int</span> <span class="n">mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">m</span><span class="o">+</span><span class="n">n</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
+</span><span class='line'>        <span class="kt">int</span> <span class="o">*</span><span class="n">temp</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">[</span><span class="n">mid</span><span class="o">+</span><span class="mi">1</span><span class="p">];</span>
+</span><span class='line'>        <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'>        <span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'>        <span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'>        <span class="k">for</span><span class="p">(;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">m</span> <span class="o">&amp;&amp;</span> <span class="n">j</span><span class="o">&lt;</span><span class="n">n</span> <span class="o">&amp;&amp;</span> <span class="n">k</span><span class="o">&lt;=</span><span class="n">mid</span><span class="p">;</span> <span class="n">k</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>          <span class="k">if</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">&lt;</span><span class="n">B</span><span class="p">[</span><span class="n">j</span><span class="p">])</span> <span class="p">{</span>
+</span><span class='line'>              <span class="n">temp</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="o">++</span><span class="p">];</span>
+</span><span class='line'>          <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span><span class='line'>              <span class="n">temp</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">B</span><span class="p">[</span><span class="n">j</span><span class="o">++</span><span class="p">];</span>
+</span><span class='line'>          <span class="p">}</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="k">if</span><span class="p">(</span><span class="n">i</span><span class="o">==</span><span class="n">m</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>          <span class="k">for</span><span class="p">(;</span> <span class="n">k</span><span class="o">&lt;=</span><span class="n">mid</span><span class="p">;</span> <span class="n">k</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>              <span class="n">temp</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">B</span><span class="p">[</span><span class="n">j</span><span class="o">++</span><span class="p">];</span>
+</span><span class='line'>          <span class="p">}</span>
+</span><span class='line'>        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">j</span><span class="o">==</span><span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>          <span class="k">for</span><span class="p">(;</span> <span class="n">k</span><span class="o">&lt;=</span><span class="n">mid</span><span class="p">;</span> <span class="n">k</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>              <span class="n">temp</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="o">++</span><span class="p">];</span>
+</span><span class='line'>          <span class="p">}</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>        <span class="kt">double</span> <span class="n">result</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'>        <span class="k">if</span><span class="p">((</span><span class="n">m</span><span class="o">+</span><span class="n">n</span><span class="p">)</span><span class="o">%</span><span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>          <span class="n">result</span> <span class="o">=</span> <span class="p">(</span><span class="n">temp</span><span class="p">[</span><span class="n">mid</span><span class="p">]</span><span class="o">+</span><span class="n">temp</span><span class="p">[</span><span class="n">mid</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="mf">2.0</span><span class="p">;</span>
+</span><span class='line'>        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span><span class='line'>          <span class="n">result</span> <span class="o">=</span> <span class="n">temp</span><span class="p">[</span><span class="n">mid</span><span class="p">]</span><span class="o">*</span><span class="mf">1.0</span><span class="p">;</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="k">delete</span><span class="p">[]</span> <span class="n">temp</span><span class="p">;</span>
+</span><span class='line'>        <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">};</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>O(n)方法</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+</pre></td><td class='code'><pre><code class='cpp'><span class='line'><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+</span><span class='line'><span class="k">public</span><span class="o">:</span>
+</span><span class='line'>    <span class="kt">int</span> <span class="n">lengthOfLongestSubstring</span><span class="p">(</span><span class="n">string</span> <span class="n">s</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="c1">// IMPORTANT: Please reset any member data you declared, as</span>
+</span><span class='line'>        <span class="c1">// the same Solution instance will be reused for each test case.</span>
+</span><span class='line'>        <span class="k">if</span><span class="p">(</span><span class="n">s</span><span class="o">==</span><span class="s">&quot;&quot;</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>          <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="kt">int</span> <span class="n">rTable</span><span class="p">[</span><span class="mi">256</span><span class="p">];</span>
+</span><span class='line'>        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="mi">256</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>            <span class="n">rTable</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="kt">int</span> <span class="n">low</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+</span><span class='line'>        <span class="kt">int</span> <span class="n">max</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'>        <span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+</span><span class='line'>        <span class="k">for</span><span class="p">(;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">s</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>            <span class="k">if</span><span class="p">(</span><span class="n">rTable</span><span class="p">[(</span><span class="kt">int</span><span class="p">)</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span><span class="o">&gt;=</span><span class="n">low</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>                <span class="k">if</span><span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="n">low</span><span class="o">&gt;</span><span class="n">max</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>                    <span class="n">max</span> <span class="o">=</span> <span class="n">i</span><span class="o">-</span><span class="n">low</span><span class="p">;</span>
+</span><span class='line'>                <span class="p">}</span>
+</span><span class='line'>                <span class="n">low</span> <span class="o">=</span> <span class="n">rTable</span><span class="p">[(</span><span class="kt">int</span><span class="p">)</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span>
+</span><span class='line'>            <span class="p">}</span>
+</span><span class='line'>            <span class="n">rTable</span><span class="p">[(</span><span class="kt">int</span><span class="p">)</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="k">if</span><span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="n">low</span><span class="o">&gt;</span><span class="n">max</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>            <span class="n">max</span> <span class="o">=</span> <span class="n">i</span><span class="o">-</span><span class="n">low</span><span class="p">;</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="k">return</span> <span class="n">max</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">};</span>
+</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[LeetCode OJ 002 Median of Two Sorted Arrays]]></title>
