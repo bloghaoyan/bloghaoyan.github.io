@@ -26,40 +26,28 @@ categories: LeetCode
 ```cpp
 class Solution {
 public:
-    double findMedianSortedArrays(int A[], int m, int B[], int n) {
+    int lengthOfLongestSubstring(string s) {
         // IMPORTANT: Please reset any member data you declared, as
         // the same Solution instance will be reused for each test case.
-        int mid = (m+n)/2;
-        int *temp = new int[mid+1];
-        int i = 0;
-        int j = 0;
-        int k = 0;
-        for(; i<m && j<n && k<=mid; k++) {
-        	if(A[i]<B[j]) {
-        		temp[k] = A[i++];
-        	} else {
-        		temp[k] = B[j++];
+        if(s=="") {
+        	return 0;
+        }
+        int low = 0;
+        int max = 0;
+        int i=1;
+        for(; i<s.size();i++) {
+        	int pos = s.find(s[i], low);
+        	if(pos<=i-1) {
+        		if(i-low>max) {
+        			max = i-low;
+        		}
+        		low = pos+1;
         	}
         }
-
-        if(i==m) {
-        	for(; k<=mid; k++) {
-        		temp[k] = B[j++];
-        	}
-        } else if(j==n) {
-        	for(; k<=mid; k++) {
-        		temp[k] = A[i++];
-        	}
+        if(i-low>max) {
+        	max = i-low;
         }
-        double result = 0;
-        if((m+n)%2 == 0) {
-        	result = (temp[mid]+temp[mid-1])/2.0;
-        } else {
-        	result = temp[mid]*1.0;
-        }
-
-        delete[] temp;
-        return result;
+        return max;
     }
 };
 ```
