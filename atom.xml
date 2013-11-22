@@ -4,7 +4,7 @@
   <title><![CDATA[Hao Yan's Blog]]></title>
   <link href="http://bloghaoyan.github.io/atom.xml" rel="self"/>
   <link href="http://bloghaoyan.github.io/"/>
-  <updated>2013-11-22T19:07:37+08:00</updated>
+  <updated>2013-11-22T19:27:02+08:00</updated>
   <id>http://bloghaoyan.github.io/</id>
   <author>
     <name><![CDATA[Hao Yan]]></name>
@@ -18,13 +18,16 @@
     <link href="http://bloghaoyan.github.io/blog/2013/11/22/leetcode-oj-004-add-two-numbers/"/>
     <updated>2013-11-22T14:46:00+08:00</updated>
     <id>http://bloghaoyan.github.io/blog/2013/11/22/leetcode-oj-004-add-two-numbers</id>
-    <content type="html"><![CDATA[<h1><a href="http://oj.leetcode.com/problems/add-two-numbers/">Add Two Numbers</a></h1>
+    <content type="html"><![CDATA[<blockquote><p><a href="http://oj.leetcode.com/problems/add-two-numbers/">Add Two Numbers</a></p></blockquote>
 
 <h3>Description:</h3>
 
 <blockquote><p>You are given two linked lists representing two non-negative numbers.<br/>
 The digits are stored in reverse order and each of their nodes contain a single digit.<br/>
 Add the two numbers and return it as a linked list.</p></blockquote>
+
+<!--more-->
+
 
 <h3>描述：</h3>
 
@@ -252,12 +255,15 @@ Add the two numbers and return it as a linked list.</p></blockquote>
     <link href="http://bloghaoyan.github.io/blog/2013/11/22/leetcode-oj-003-longest-substring-without-repeating-characters/"/>
     <updated>2013-11-22T09:01:00+08:00</updated>
     <id>http://bloghaoyan.github.io/blog/2013/11/22/leetcode-oj-003-longest-substring-without-repeating-characters</id>
-    <content type="html"><![CDATA[<h2><a href="http://oj.leetcode.com/problems/longest-substring-without-repeating-characters/">Longest Substring Without Repeating Characters</a></h2>
+    <content type="html"><![CDATA[<blockquote><p><a href="http://oj.leetcode.com/problems/longest-substring-without-repeating-characters/">Longest Substring Without Repeating Characters</a></p></blockquote>
 
 <h3>Description:</h3>
 
 <blockquote><p>Given a string, find the length of the longest substring without repeating characters.<br/>
 For example, the longest substring without repeating letters for &ldquo;abcabcbb&rdquo; is &ldquo;abc&rdquo;, which the length is 3. For &ldquo;bbbbb&rdquo; the longest substring is &ldquo;b&rdquo;, with the length of 1.</p></blockquote>
+
+<!--more-->
+
 
 <h3>描述：</h3>
 
@@ -421,12 +427,15 @@ For example, the longest substring without repeating letters for &ldquo;abcabcbb
     <link href="http://bloghaoyan.github.io/blog/2013/11/21/leetcode-oj-002-median-of-two-sorted-arrays/"/>
     <updated>2013-11-21T20:59:00+08:00</updated>
     <id>http://bloghaoyan.github.io/blog/2013/11/21/leetcode-oj-002-median-of-two-sorted-arrays</id>
-    <content type="html"><![CDATA[<h2><a href="http://oj.leetcode.com/problems/median-of-two-sorted-arrays/">Median of Two Sorted Arrays</a></h2>
+    <content type="html"><![CDATA[<blockquote><p><a href="http://oj.leetcode.com/problems/median-of-two-sorted-arrays/">Median of Two Sorted Arrays</a></p></blockquote>
 
 <h3>Description:</h3>
 
 <blockquote><p>There are two sorted arrays A and B of size m and n respectively. <br/>
 Find the median of the two sorted arrays. The overall run time complexity should be O(log (m+n)).</p></blockquote>
+
+<!--more-->
+
 
 <h3>描述：</h3>
 
@@ -526,7 +535,7 @@ Find the median of the two sorted arrays. The overall run time complexity should
     <link href="http://bloghaoyan.github.io/blog/2013/11/21/leetcode-oj-001-two-sum/"/>
     <updated>2013-11-21T13:27:00+08:00</updated>
     <id>http://bloghaoyan.github.io/blog/2013/11/21/leetcode-oj-001-two-sum</id>
-    <content type="html"><![CDATA[<h2><a href="http://oj.leetcode.com/problems/two-sum/">Two Sum</a></h2>
+    <content type="html"><![CDATA[<blockquote><p><a href="http://oj.leetcode.com/problems/two-sum/">Two Sum</a></p></blockquote>
 
 <h3>Description:</h3>
 
@@ -534,6 +543,9 @@ Find the median of the two sorted arrays. The overall run time complexity should
 The function twoSum should return indices of the two numbers such that they add up to the target, where index1 must be less than index2.<br/>
 Please note that your returned answers (both index1 and index2) are <em>not zero-based</em>.<br/>
 You may assume that each input would have exactly one solution.</p></blockquote>
+
+<!--more-->
+
 
 <h3>描述：</h3>
 
