@@ -4,7 +4,7 @@
   <title><![CDATA[Hao Yan's Blog]]></title>
   <link href="http://bloghaoyan.github.io/atom.xml" rel="self"/>
   <link href="http://bloghaoyan.github.io/"/>
-  <updated>2013-11-22T20:17:49+08:00</updated>
+  <updated>2013-11-23T21:08:21+08:00</updated>
   <id>http://bloghaoyan.github.io/</id>
   <author>
     <name><![CDATA[Hao Yan]]></name>
@@ -14,11 +14,157 @@
 
   
   <entry>
+    <title type="html"><![CDATA[LeetCode OJ 005 Longest Palidromic Substring]]></title>
+    <link href="http://bloghaoyan.github.io/blog/2013/11/23/leetcode-oj-005-longest-palidromic-substring/"/>
+    <updated>2013-11-23T20:35:00+08:00</updated>
+    <id>http://bloghaoyan.github.io/blog/2013/11/23/leetcode-oj-005-longest-palidromic-substring</id>
+    <content type="html"><![CDATA[<blockquote><p><a href="http://oj.leetcode.com/problems/longest-palindromic-substring/">Longest Palindromic Substring 最长回文子串</a></p></blockquote>
+
+<h3>Description:</h3>
+
+<blockquote><p>Given a string S, find the longest palindromic substring in S. <br/>
+You may assume that the maximum length of S is 1000, and there exists one unique longest palindromic substring.</p></blockquote>
+
+<h3>描述：</h3>
+
+<blockquote><p>给定一个字符串S，找出S中的最长回文子串。<br/>
+你可以假设字符串的最大长度为1000，其中有且只有一个最长回文子串。</p></blockquote>
+
+<h3>思路</h3>
+
+<blockquote><p>Manacher算法</p></blockquote>
+
+<h3>代码</h3>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+</pre></td><td class='code'><pre><code class='cpp'><span class='line'><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+</span><span class='line'><span class="k">public</span><span class="o">:</span>
+</span><span class='line'>  <span class="n">string</span> <span class="n">longestPalindrome</span><span class="p">(</span><span class="n">string</span> <span class="n">s</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>      <span class="c1">// IMPORTANT: Please reset any member data you declared, as</span>
+</span><span class='line'>      <span class="c1">// the same Solution instance will be reused for each test case.</span>
+</span><span class='line'>      <span class="kt">int</span> <span class="n">longSize</span> <span class="o">=</span> <span class="n">s</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span><span class="p">;</span>
+</span><span class='line'>      <span class="n">string</span> <span class="n">sLong</span> <span class="o">=</span> <span class="n">string</span><span class="p">(</span><span class="n">longSize</span><span class="p">,</span> <span class="sc">&#39;#&#39;</span><span class="p">);</span>
+</span><span class='line'>      <span class="n">sLong</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="sc">&#39;$&#39;</span><span class="p">;</span>
+</span><span class='line'>      <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">s</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>          <span class="n">sLong</span><span class="p">[</span><span class="n">i</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+</span><span class='line'>      <span class="p">}</span>
+</span><span class='line'>      <span class="kt">int</span> <span class="o">*</span><span class="n">radi</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">[</span><span class="n">longSize</span><span class="p">];</span>
+</span><span class='line'>      <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">longSize</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>          <span class="n">radi</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'>      <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>      <span class="kt">int</span> <span class="n">high</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'>      <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'>      <span class="kt">int</span> <span class="n">cur</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>      <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">longSize</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>          <span class="k">if</span> <span class="p">(</span><span class="n">high</span> <span class="o">&gt;</span> <span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>              <span class="n">radi</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">min</span><span class="p">(</span><span class="n">radi</span><span class="p">[</span><span class="mi">2</span> <span class="o">*</span> <span class="n">cur</span> <span class="o">-</span> <span class="n">i</span><span class="p">],</span> <span class="n">high</span> <span class="o">-</span> <span class="n">i</span><span class="p">);</span>
+</span><span class='line'>          <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span><span class='line'>              <span class="n">radi</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span><span class='line'>          <span class="p">}</span>
+</span><span class='line'>          <span class="k">while</span> <span class="p">(</span><span class="n">sLong</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="n">radi</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">==</span> <span class="n">sLong</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="n">radi</span><span class="p">[</span><span class="n">i</span><span class="p">]])</span> <span class="p">{</span>
+</span><span class='line'>              <span class="n">radi</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">++</span><span class="p">;</span>
+</span><span class='line'>          <span class="p">}</span>
+</span><span class='line'>          <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="n">radi</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">high</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>              <span class="n">cur</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
+</span><span class='line'>              <span class="n">high</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="n">radi</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+</span><span class='line'>          <span class="p">}</span>
+</span><span class='line'>      <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>      <span class="kt">int</span> <span class="n">max</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span><span class='line'>      <span class="kt">int</span> <span class="n">pos</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span><span class='line'>      <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">longSize</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>          <span class="k">if</span> <span class="p">(</span><span class="n">radi</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">max</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>              <span class="n">max</span> <span class="o">=</span> <span class="n">radi</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+</span><span class='line'>              <span class="n">pos</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
+</span><span class='line'>          <span class="p">}</span>
+</span><span class='line'>      <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>      <span class="kt">int</span> <span class="n">start</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'>      <span class="kt">int</span> <span class="n">subLen</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'>      <span class="k">if</span> <span class="p">(</span><span class="n">pos</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>          <span class="n">pos</span> <span class="o">=</span> <span class="p">(</span><span class="n">pos</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
+</span><span class='line'>          <span class="n">max</span> <span class="o">=</span> <span class="n">max</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
+</span><span class='line'>          <span class="n">subLen</span> <span class="o">=</span> <span class="n">max</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+</span><span class='line'>      <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span><span class='line'>          <span class="n">pos</span> <span class="o">=</span> <span class="p">(</span><span class="n">pos</span> <span class="o">-</span> <span class="mi">3</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
+</span><span class='line'>          <span class="n">max</span> <span class="o">=</span> <span class="p">(</span><span class="n">max</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
+</span><span class='line'>          <span class="n">subLen</span> <span class="o">=</span> <span class="n">max</span> <span class="o">*</span> <span class="mi">2</span><span class="p">;</span>
+</span><span class='line'>      <span class="p">}</span>
+</span><span class='line'>      <span class="n">start</span> <span class="o">=</span> <span class="n">pos</span> <span class="o">-</span> <span class="n">max</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+</span><span class='line'>      <span class="k">return</span> <span class="n">s</span><span class="p">.</span><span class="n">substr</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">subLen</span><span class="p">);</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="p">};</span>
+</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[LeetCode OJ 004 Add Two Numbers]]></title>
     <link href="http://bloghaoyan.github.io/blog/2013/11/22/leetcode-oj-004-add-two-numbers/"/>
     <updated>2013-11-22T14:46:00+08:00</updated>
     <id>http://bloghaoyan.github.io/blog/2013/11/22/leetcode-oj-004-add-two-numbers</id>
-    <content type="html"><![CDATA[<blockquote><p><a href="http://oj.leetcode.com/problems/add-two-numbers/">Add Two Numbers</a></p></blockquote>
+    <content type="html"><![CDATA[<blockquote><p><a href="http://oj.leetcode.com/problems/add-two-numbers/">Add Two Numbers 两数相加</a></p></blockquote>
 
 <h3>Description:</h3>
 
@@ -255,7 +401,7 @@ Add the two numbers and return it as a linked list.</p></blockquote>
     <link href="http://bloghaoyan.github.io/blog/2013/11/22/leetcode-oj-003-longest-substring-without-repeating-characters/"/>
     <updated>2013-11-22T09:01:00+08:00</updated>
     <id>http://bloghaoyan.github.io/blog/2013/11/22/leetcode-oj-003-longest-substring-without-repeating-characters</id>
-    <content type="html"><![CDATA[<blockquote><p><a href="http://oj.leetcode.com/problems/longest-substring-without-repeating-characters/">Longest Substring Without Repeating Characters</a></p></blockquote>
+    <content type="html"><![CDATA[<blockquote><p><a href="http://oj.leetcode.com/problems/longest-substring-without-repeating-characters/">Longest Substring Without Repeating Characters 最长无重复字符的子串</a></p></blockquote>
 
 <h3>Description:</h3>
 
@@ -427,7 +573,7 @@ For example, the longest substring without repeating letters for &ldquo;abcabcbb
     <link href="http://bloghaoyan.github.io/blog/2013/11/21/leetcode-oj-002-median-of-two-sorted-arrays/"/>
     <updated>2013-11-21T20:59:00+08:00</updated>
     <id>http://bloghaoyan.github.io/blog/2013/11/21/leetcode-oj-002-median-of-two-sorted-arrays</id>
-    <content type="html"><![CDATA[<blockquote><p><a href="http://oj.leetcode.com/problems/median-of-two-sorted-arrays/">Median of Two Sorted Arrays</a></p></blockquote>
+    <content type="html"><![CDATA[<blockquote><p><a href="http://oj.leetcode.com/problems/median-of-two-sorted-arrays/">Median of Two Sorted Arrays 两个已排序数组的中值</a></p></blockquote>
 
 <h3>Description:</h3>
 
@@ -535,7 +681,7 @@ Find the median of the two sorted arrays. The overall run time complexity should
     <link href="http://bloghaoyan.github.io/blog/2013/11/21/leetcode-oj-001-two-sum/"/>
     <updated>2013-11-21T13:27:00+08:00</updated>
     <id>http://bloghaoyan.github.io/blog/2013/11/21/leetcode-oj-001-two-sum</id>
-    <content type="html"><![CDATA[<blockquote><p><a href="http://oj.leetcode.com/problems/two-sum/">Two Sum</a></p></blockquote>
+    <content type="html"><![CDATA[<blockquote><p><a href="http://oj.leetcode.com/problems/two-sum/">Two Sum 两数之和</a></p></blockquote>
 
 <h3>Description:</h3>
 

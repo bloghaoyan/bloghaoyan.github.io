@@ -4,7 +4,7 @@
   <title><![CDATA[Category: LeetCode | Hao Yan's Blog]]></title>
   <link href="http://bloghaoyan.github.io/blog/categories/leetcode/atom.xml" rel="self"/>
   <link href="http://bloghaoyan.github.io/"/>
-  <updated>2013-11-22T20:17:49+08:00</updated>
+  <updated>2013-11-23T21:08:21+08:00</updated>
   <id>http://bloghaoyan.github.io/</id>
   <author>
     <name><![CDATA[Hao Yan]]></name>
@@ -14,11 +14,101 @@
 
   
   <entry>
+    <title type="html"><![CDATA[LeetCode OJ 005 Longest Palidromic Substring]]></title>
+    <link href="http://bloghaoyan.github.io/blog/2013/11/23/leetcode-oj-005-longest-palidromic-substring/"/>
+    <updated>2013-11-23T20:35:00+08:00</updated>
+    <id>http://bloghaoyan.github.io/blog/2013/11/23/leetcode-oj-005-longest-palidromic-substring</id>
+    <content type="html"><![CDATA[<blockquote><p><a href="http://oj.leetcode.com/problems/longest-palindromic-substring/">Longest Palindromic Substring 最长回文子串</a></p></blockquote>
+
+<h3>Description:</h3>
+
+<blockquote><p>Given a string S, find the longest palindromic substring in S. <br/>
+You may assume that the maximum length of S is 1000, and there exists one unique longest palindromic substring.</p></blockquote>
+
+<h3>描述：</h3>
+
+<blockquote><p>给定一个字符串S，找出S中的最长回文子串。<br/>
+你可以假设字符串的最大长度为1000，其中有且只有一个最长回文子串。</p></blockquote>
+
+<h3>思路</h3>
+
+<blockquote><p>Manacher算法</p></blockquote>
+
+<h3>代码</h3>
+
+<p>```cpp
+class Solution {
+public:</p>
+
+<pre><code>string longestPalindrome(string s) {
+    // IMPORTANT: Please reset any member data you declared, as
+    // the same Solution instance will be reused for each test case.
+    int longSize = s.size() * 2 + 2;
+    string sLong = string(longSize, '#');
+    sLong[0] = '$';
+    for (int i = 0; i &lt; s.size(); i++) {
+        sLong[i * 2 + 2] = s[i];
+    }
+    int *radi = new int[longSize];
+    for (int i = 0; i &lt; longSize; i++) {
+        radi[i] = 0;
+    }
+
+    int high = 0;
+    int i = 0;
+    int cur = 0;
+
+    for (i = 1; i &lt; longSize; i++) {
+        if (high &gt; i) {
+            radi[i] = min(radi[2 * cur - i], high - i);
+        } else {
+            radi[i] = 1;
+        }
+        while (sLong[i - radi[i]] == sLong[i + radi[i]]) {
+            radi[i]++;
+        }
+        if (i + radi[i] &gt; high) {
+            cur = i;
+            high = i + radi[i];
+        }
+    }
+
+    int max = 1;
+    int pos = 1;
+    for (int i = 1; i &lt; longSize; i++) {
+        if (radi[i] &gt; max) {
+            max = radi[i];
+            pos = i;
+        }
+    }
+
+    int start = 0;
+    int subLen = 0;
+    if (pos % 2 == 0) {
+        pos = (pos - 2) / 2;
+        max = max / 2;
+        subLen = max * 2 - 1;
+    } else {
+        pos = (pos - 3) / 2;
+        max = (max - 1) / 2;
+        subLen = max * 2;
+    }
+    start = pos - max + 1;
+    return s.substr(start, subLen);
+}
+</code></pre>
+
+<p>};
+```</p>
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[LeetCode OJ 004 Add Two Numbers]]></title>
     <link href="http://bloghaoyan.github.io/blog/2013/11/22/leetcode-oj-004-add-two-numbers/"/>
     <updated>2013-11-22T14:46:00+08:00</updated>
     <id>http://bloghaoyan.github.io/blog/2013/11/22/leetcode-oj-004-add-two-numbers</id>
-    <content type="html"><![CDATA[<blockquote><p><a href="http://oj.leetcode.com/problems/add-two-numbers/">Add Two Numbers</a></p></blockquote>
+    <content type="html"><![CDATA[<blockquote><p><a href="http://oj.leetcode.com/problems/add-two-numbers/">Add Two Numbers 两数相加</a></p></blockquote>
 
 <h3>Description:</h3>
 
@@ -178,7 +268,7 @@ public:</p>
     <link href="http://bloghaoyan.github.io/blog/2013/11/22/leetcode-oj-003-longest-substring-without-repeating-characters/"/>
     <updated>2013-11-22T09:01:00+08:00</updated>
     <id>http://bloghaoyan.github.io/blog/2013/11/22/leetcode-oj-003-longest-substring-without-repeating-characters</id>
-    <content type="html"><![CDATA[<blockquote><p><a href="http://oj.leetcode.com/problems/longest-substring-without-repeating-characters/">Longest Substring Without Repeating Characters</a></p></blockquote>
+    <content type="html"><![CDATA[<blockquote><p><a href="http://oj.leetcode.com/problems/longest-substring-without-repeating-characters/">Longest Substring Without Repeating Characters 最长无重复字符的子串</a></p></blockquote>
 
 <h3>Description:</h3>
 
@@ -286,7 +376,7 @@ public:
     <link href="http://bloghaoyan.github.io/blog/2013/11/21/leetcode-oj-002-median-of-two-sorted-arrays/"/>
     <updated>2013-11-21T20:59:00+08:00</updated>
     <id>http://bloghaoyan.github.io/blog/2013/11/21/leetcode-oj-002-median-of-two-sorted-arrays</id>
-    <content type="html"><![CDATA[<blockquote><p><a href="http://oj.leetcode.com/problems/median-of-two-sorted-arrays/">Median of Two Sorted Arrays</a></p></blockquote>
+    <content type="html"><![CDATA[<blockquote><p><a href="http://oj.leetcode.com/problems/median-of-two-sorted-arrays/">Median of Two Sorted Arrays 两个已排序数组的中值</a></p></blockquote>
 
 <h3>Description:</h3>
 
@@ -359,7 +449,7 @@ public:</p>
     <link href="http://bloghaoyan.github.io/blog/2013/11/21/leetcode-oj-001-two-sum/"/>
     <updated>2013-11-21T13:27:00+08:00</updated>
     <id>http://bloghaoyan.github.io/blog/2013/11/21/leetcode-oj-001-two-sum</id>
-    <content type="html"><![CDATA[<blockquote><p><a href="http://oj.leetcode.com/problems/two-sum/">Two Sum</a></p></blockquote>
+    <content type="html"><![CDATA[<blockquote><p><a href="http://oj.leetcode.com/problems/two-sum/">Two Sum 两数之和</a></p></blockquote>
 
 <h3>Description:</h3>
 
