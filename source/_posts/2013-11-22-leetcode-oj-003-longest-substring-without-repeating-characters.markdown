@@ -5,7 +5,7 @@ date: 2013-11-22 09:01
 comments: true
 categories: LeetCode
 ---
->[Longest Substring Without Repeating Characters](http://oj.leetcode.com/problems/longest-substring-without-repeating-characters/)
+>[Longest Substring Without Repeating Characters 最长无重复字符的子串](http://oj.leetcode.com/problems/longest-substring-without-repeating-characters/)
 
 ###Description:
 >Given a string, find the length of the longest substring without repeating characters.  

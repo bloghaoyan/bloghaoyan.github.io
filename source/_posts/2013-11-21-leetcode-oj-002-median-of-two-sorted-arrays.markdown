@@ -5,7 +5,7 @@ date: 2013-11-21 20:59
 comments: true
 categories: LeetCode
 ---
->[Median of Two Sorted Arrays](http://oj.leetcode.com/problems/median-of-two-sorted-arrays/)
+>[Median of Two Sorted Arrays 两个已排序数组的中值](http://oj.leetcode.com/problems/median-of-two-sorted-arrays/)
 
 ###Description:
 >There are two sorted arrays A and B of size m and n respectively.   

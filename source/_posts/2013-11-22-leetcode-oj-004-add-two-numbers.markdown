@@ -5,7 +5,7 @@ date: 2013-11-22 14:46
 comments: true
 categories: LeetCode
 ---
->[Add Two Numbers](http://oj.leetcode.com/problems/add-two-numbers/)
+>[Add Two Numbers 两数相加](http://oj.leetcode.com/problems/add-two-numbers/)
 
 ###Description:
 >You are given two linked lists representing two non-negative numbers.  
