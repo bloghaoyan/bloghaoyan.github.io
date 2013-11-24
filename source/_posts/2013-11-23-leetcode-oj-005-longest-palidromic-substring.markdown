@@ -19,7 +19,7 @@ categories: LeetCode
 >Manacher算法
 
 ###代码
-```cpp
+```cpp Longest Palidromic Substring
 class Solution {
 public:
 	string longestPalindrome(string s) {

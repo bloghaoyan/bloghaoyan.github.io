@@ -31,7 +31,7 @@ categories: LeetCode
 >2. 先排序，再二分查找：算法复杂度O(nlogn)
 
 ###代码
-```cpp
+```cpp Two Sum
 class Solution {
 public:
     int bSearch(vector<int> &numbers, int other, int low, int high) {

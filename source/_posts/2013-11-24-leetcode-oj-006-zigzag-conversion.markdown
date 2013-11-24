@@ -3,29 +3,30 @@ layout: post
 title: "LeetCode OJ 006 ZigZag Conversion"
 date: 2013-11-24 17:21
 comments: true
-categories: 
+categories: LeetCode
 ---
 >[ZigZag Conversion 曲折转换](http://oj.leetcode.com/problems/zigzag-conversion/)
 
 ###Description:
 >The string "ABCDEFGHIJKLMNOPQRSTUVWXYZ" is written in a zigzag pattern on a given number of rows like this: (you may want to display this pattern in a fixed font for better legibility)![zigzag.png](http://d.pcs.baidu.com/thumbnail/a9ba33f12fcfe6a7d9e3f315261bce59?fid=1143547140-250528-1204358903&time=1385290718&rt=pr&sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-crgW%2FKI4NY4Q%2BzRCFy5%2B9GxVzNA%3D&expires=8h&r=771500886&size=c850_u580&quality=100)  
-And then read line by line: "AKUBJLTVCIMSWDHNRXEGOQYFPZ"  
-Write the code that will take a string and make this conversion given a number of rows:  
-string convert(string text, int nRows);  
-convert("ABCDEFGHIJKLMNOPQRSTUVWXYZ", 6) should return "AKUBJLTVCIMSWDHNRXEGOQYFPZ".  
+>And then read line by line: "AKUBJLTVCIMSWDHNRXEGOQYFPZ"  
+>Write the code that will take a string and make this conversion given a number of rows:  
+>string convert(string text, int nRows);  
+>convert("ABCDEFGHIJKLMNOPQRSTUVWXYZ", 6) should return "AKUBJLTVCIMSWDHNRXEGOQYFPZ".  
 <!--more-->
-###描述：
+###描述:
 >字符串"ABCDEFGHIJKLMNOPQRSTUVWXYZ"按给定的行数以zigzag的模式书写，如下图：  
 >然后按行读，得到字符串"AKUBJLTVCIMSWDHNRXEGOQYFPZ"  
 >编程实现这种变换。  
->convert("ABCDEFGHIJKLMNOPQRSTUVWXYZ", 6) 应返回 "AKUBJLTVCIMSWDHNRXEGOQYFPZ"。  
+>convert("ABCDEFGHIJKLMNOPQRSTUVWXYZ", 6)应返回 "AKUBJLTVCIMSWDHNRXEGOQYFPZ"。  
 
-###思路
->一个向下和斜向上组合在一块称作一个zig，则zigSize = 2*nRow-2_(特殊情况，当nRows为1时，直接返回原字符串)_。  
+###思路:
+>一个向下和斜向上组合在一块称作一个zig，则zigSize = 2*nRow-2  
+>特殊情况:当nRows为1时，直接返回原字符串。  
 >每个zig的第一行和最后一行只有1个字符，其他行有2个字符。  
 
-###代码
-```cpp
+###代码:
+```cpp ZigZag Conversion
 class Solution {
 public:
 	string convert(string s, int nRows) {

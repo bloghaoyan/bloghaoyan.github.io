@@ -20,7 +20,7 @@ categories: LeetCode
 >相当于做归并。本题中若m+n为偶数则中值是中间两个数的平均值。
 
 ###代码
-```cpp
+```cpp Median of Two Sorted Arrays
 class Solution {
 public:
     double findMedianSortedArrays(int A[], int m, int B[], int n) {

@@ -23,7 +23,7 @@ categories: LeetCode
 
 ###代码
 * O(n<sup>2</sup>)方法
-```cpp
+```cpp Longest Substring Without Repeating Characters
 class Solution {
 public:
     int lengthOfLongestSubstring(string s) {
@@ -52,7 +52,7 @@ public:
 };
 ```
 * O(n)方法
-```cpp
+```cpp Longest Substring Without Repeating Characters
 class Solution {
 public:
     int lengthOfLongestSubstring(string s) {
