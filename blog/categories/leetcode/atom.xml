@@ -4,7 +4,7 @@
   <title><![CDATA[Category: LeetCode | Hao Yan's Blog]]></title>
   <link href="http://bloghaoyan.github.io/blog/categories/leetcode/atom.xml" rel="self"/>
   <link href="http://bloghaoyan.github.io/"/>
-  <updated>2013-11-24T18:26:33+08:00</updated>
+  <updated>2013-11-24T19:07:01+08:00</updated>
   <id>http://bloghaoyan.github.io/</id>
   <author>
     <name><![CDATA[Hao Yan]]></name>
@@ -24,6 +24,9 @@
 
 <blockquote><p>Given a string S, find the longest palindromic substring in S. <br/>
 You may assume that the maximum length of S is 1000, and there exists one unique longest palindromic substring.</p></blockquote>
+
+<!--more-->
+
 
 <h3>描述：</h3>
 
