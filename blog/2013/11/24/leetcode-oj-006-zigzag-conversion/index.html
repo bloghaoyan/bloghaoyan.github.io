@@ -5,7 +5,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Hao Yan's Blog</title>
+  <title>LeetCode OJ 006 ZigZag Conversion - Hao Yan's Blog</title>
   <meta name="author" content="Hao Yan">
 
   
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://bloghaoyan.github.io">
+  <link rel="canonical" href="http://bloghaoyan.github.io/blog/2013/11/24/leetcode-oj-006-zigzag-conversion">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/bootstrap/bootstrap.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/stylesheets/bootstrap/responsive.css" media="screen, projection" rel="stylesheet" type="text/css">
@@ -101,15 +101,13 @@
 </nav>
   <div class="container">
     <div class="row-fluid">
-      <div class="span9">
-  
-  
-  
-    <article>
       
+<article class="hentry span9" role="article">
+
+  
   <header class="page-header">
     
-      <h1 class="entry-title"><a href="/blog/2013/11/24/leetcode-oj-006-zigzag-conversion/">LeetCode OJ 006 ZigZag Conversion</a></h1>
+      <h1 class="entry-title">LeetCode OJ 006 ZigZag Conversion</h1>
     
     
       <p class="meta">
@@ -127,14 +125,14 @@
 
 <time datetime="2013-11-24T17:21:00+08:00" pubdate data-updated="true">Nov 24<span>th</span>, 2013</time>
         
-         | <a href="/blog/2013/11/24/leetcode-oj-006-zigzag-conversion/#disqus_thread">Comments</a>
+         | <a href="#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><blockquote><p><a href="http://oj.leetcode.com/problems/zigzag-conversion/">ZigZag Conversion 曲折转换</a></p></blockquote>
+<div class="entry-content"><blockquote><p><a href="http://oj.leetcode.com/problems/zigzag-conversion/">ZigZag Conversion 曲折转换</a></p></blockquote>
 
 <h3>Description:</h3>
 
@@ -283,197 +281,16 @@ convert(&ldquo;ABCDEFGHIJKLMNOPQRSTUVWXYZ&rdquo;, 6) 应返回 &ldquo;AKUBJLTVCI
 </span></code></pre></td></tr></table></div></figure>
 
 </div>
-  
-  
 
 
-    </article>
-  
-  
-    <article>
+  <footer>
+    <p class="meta">
       
-  <header class="page-header">
-    
-      <h1 class="entry-title"><a href="/blog/2013/11/23/leetcode-oj-005-longest-palidromic-substring/">LeetCode OJ 005 Longest Palidromic Substring</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
   
 
+<span class="byline author vcard">Posted by <span class="fn">Hao Yan</span></span>
 
-<time datetime="2013-11-23T20:35:00+08:00" pubdate data-updated="true">Nov 23<span>rd</span>, 2013</time>
-        
-         | <a href="/blog/2013/11/23/leetcode-oj-005-longest-palidromic-substring/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><blockquote><p><a href="http://oj.leetcode.com/problems/longest-palindromic-substring/">Longest Palindromic Substring 最长回文子串</a></p></blockquote>
-
-<h3>Description:</h3>
-
-<blockquote><p>Given a string S, find the longest palindromic substring in S. <br/>
-You may assume that the maximum length of S is 1000, and there exists one unique longest palindromic substring.</p></blockquote>
-
-<h3>描述：</h3>
-
-<blockquote><p>给定一个字符串S，找出S中的最长回文子串。<br/>
-你可以假设字符串的最大长度为1000，其中有且只有一个最长回文子串。</p></blockquote>
-
-<h3>思路</h3>
-
-<blockquote><p>Manacher算法</p></blockquote>
-
-<h3>代码</h3>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-<span class='line-number'>40</span>
-<span class='line-number'>41</span>
-<span class='line-number'>42</span>
-<span class='line-number'>43</span>
-<span class='line-number'>44</span>
-<span class='line-number'>45</span>
-<span class='line-number'>46</span>
-<span class='line-number'>47</span>
-<span class='line-number'>48</span>
-<span class='line-number'>49</span>
-<span class='line-number'>50</span>
-<span class='line-number'>51</span>
-<span class='line-number'>52</span>
-<span class='line-number'>53</span>
-<span class='line-number'>54</span>
-<span class='line-number'>55</span>
-<span class='line-number'>56</span>
-<span class='line-number'>57</span>
-<span class='line-number'>58</span>
-<span class='line-number'>59</span>
-</pre></td><td class='code'><pre><code class='cpp'><span class='line'><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
-</span><span class='line'><span class="k">public</span><span class="o">:</span>
-</span><span class='line'>  <span class="n">string</span> <span class="n">longestPalindrome</span><span class="p">(</span><span class="n">string</span> <span class="n">s</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>      <span class="c1">// IMPORTANT: Please reset any member data you declared, as</span>
-</span><span class='line'>      <span class="c1">// the same Solution instance will be reused for each test case.</span>
-</span><span class='line'>      <span class="kt">int</span> <span class="n">longSize</span> <span class="o">=</span> <span class="n">s</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span><span class="p">;</span>
-</span><span class='line'>      <span class="n">string</span> <span class="n">sLong</span> <span class="o">=</span> <span class="n">string</span><span class="p">(</span><span class="n">longSize</span><span class="p">,</span> <span class="sc">&#39;#&#39;</span><span class="p">);</span>
-</span><span class='line'>      <span class="n">sLong</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="sc">&#39;$&#39;</span><span class="p">;</span>
-</span><span class='line'>      <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">s</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>          <span class="n">sLong</span><span class="p">[</span><span class="n">i</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-</span><span class='line'>      <span class="p">}</span>
-</span><span class='line'>      <span class="kt">int</span> <span class="o">*</span><span class="n">radi</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">[</span><span class="n">longSize</span><span class="p">];</span>
-</span><span class='line'>      <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">longSize</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>          <span class="n">radi</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-</span><span class='line'>      <span class="p">}</span>
-</span><span class='line'>
-</span><span class='line'>      <span class="kt">int</span> <span class="n">high</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-</span><span class='line'>      <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-</span><span class='line'>      <span class="kt">int</span> <span class="n">cur</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-</span><span class='line'>
-</span><span class='line'>      <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">longSize</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>          <span class="k">if</span> <span class="p">(</span><span class="n">high</span> <span class="o">&gt;</span> <span class="n">i</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>              <span class="n">radi</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">min</span><span class="p">(</span><span class="n">radi</span><span class="p">[</span><span class="mi">2</span> <span class="o">*</span> <span class="n">cur</span> <span class="o">-</span> <span class="n">i</span><span class="p">],</span> <span class="n">high</span> <span class="o">-</span> <span class="n">i</span><span class="p">);</span>
-</span><span class='line'>          <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-</span><span class='line'>              <span class="n">radi</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-</span><span class='line'>          <span class="p">}</span>
-</span><span class='line'>          <span class="k">while</span> <span class="p">(</span><span class="n">sLong</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="n">radi</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">==</span> <span class="n">sLong</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="n">radi</span><span class="p">[</span><span class="n">i</span><span class="p">]])</span> <span class="p">{</span>
-</span><span class='line'>              <span class="n">radi</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">++</span><span class="p">;</span>
-</span><span class='line'>          <span class="p">}</span>
-</span><span class='line'>          <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="n">radi</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">high</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>              <span class="n">cur</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
-</span><span class='line'>              <span class="n">high</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="n">radi</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-</span><span class='line'>          <span class="p">}</span>
-</span><span class='line'>      <span class="p">}</span>
-</span><span class='line'>
-</span><span class='line'>      <span class="kt">int</span> <span class="n">max</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-</span><span class='line'>      <span class="kt">int</span> <span class="n">pos</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-</span><span class='line'>      <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">longSize</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>          <span class="k">if</span> <span class="p">(</span><span class="n">radi</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">max</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>              <span class="n">max</span> <span class="o">=</span> <span class="n">radi</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-</span><span class='line'>              <span class="n">pos</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
-</span><span class='line'>          <span class="p">}</span>
-</span><span class='line'>      <span class="p">}</span>
-</span><span class='line'>
-</span><span class='line'>      <span class="kt">int</span> <span class="n">start</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-</span><span class='line'>      <span class="kt">int</span> <span class="n">subLen</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-</span><span class='line'>      <span class="k">if</span> <span class="p">(</span><span class="n">pos</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>          <span class="n">pos</span> <span class="o">=</span> <span class="p">(</span><span class="n">pos</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
-</span><span class='line'>          <span class="n">max</span> <span class="o">=</span> <span class="n">max</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
-</span><span class='line'>          <span class="n">subLen</span> <span class="o">=</span> <span class="n">max</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
-</span><span class='line'>      <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-</span><span class='line'>          <span class="n">pos</span> <span class="o">=</span> <span class="p">(</span><span class="n">pos</span> <span class="o">-</span> <span class="mi">3</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
-</span><span class='line'>          <span class="n">max</span> <span class="o">=</span> <span class="p">(</span><span class="n">max</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
-</span><span class='line'>          <span class="n">subLen</span> <span class="o">=</span> <span class="n">max</span> <span class="o">*</span> <span class="mi">2</span><span class="p">;</span>
-</span><span class='line'>      <span class="p">}</span>
-</span><span class='line'>      <span class="n">start</span> <span class="o">=</span> <span class="n">pos</span> <span class="o">-</span> <span class="n">max</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
-</span><span class='line'>      <span class="k">return</span> <span class="n">s</span><span class="p">.</span><span class="n">substr</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">subLen</span><span class="p">);</span>
-</span><span class='line'>  <span class="p">}</span>
-</span><span class='line'><span class="p">};</span>
-</span></code></pre></td></tr></table></div></figure>
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
       
-  <header class="page-header">
-    
-      <h1 class="entry-title"><a href="/blog/2013/11/22/leetcode-oj-004-add-two-numbers/">LeetCode OJ 004 Add Two Numbers</a></h1>
-    
-    
-      <p class="meta">
-        
 
 
 
@@ -485,186 +302,40 @@ You may assume that the maximum length of S is 1000, and there exists one unique
   
 
 
-<time datetime="2013-11-22T14:46:00+08:00" pubdate data-updated="true">Nov 22<span>nd</span>, 2013</time>
-        
-         | <a href="/blog/2013/11/22/leetcode-oj-004-add-two-numbers/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><blockquote><p><a href="http://oj.leetcode.com/problems/add-two-numbers/">Add Two Numbers 两数相加</a></p></blockquote>
-
-<h3>Description:</h3>
-
-<blockquote><p>You are given two linked lists representing two non-negative numbers.<br/>
-The digits are stored in reverse order and each of their nodes contain a single digit.<br/>
-Add the two numbers and return it as a linked list.</p></blockquote>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2013/11/22/leetcode-oj-004-add-two-numbers/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
+<time datetime="2013-11-24T17:21:00+08:00" pubdate data-updated="true">Nov 24<span>th</span>, 2013</time>
       
-  <header class="page-header">
+
+
+    </p>
     
-      <h1 class="entry-title"><a href="/blog/2013/11/22/leetcode-oj-003-longest-substring-without-repeating-characters/">LeetCode OJ 003 Longest Substring Without Repeating Characters</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
+      <div class="sharing">
   
-
-
-<time datetime="2013-11-22T09:01:00+08:00" pubdate data-updated="true">Nov 22<span>nd</span>, 2013</time>
-        
-         | <a href="/blog/2013/11/22/leetcode-oj-003-longest-substring-without-repeating-characters/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><blockquote><p><a href="http://oj.leetcode.com/problems/longest-substring-without-repeating-characters/">Longest Substring Without Repeating Characters 最长无重复字符的子串</a></p></blockquote>
-
-<h3>Description:</h3>
-
-<blockquote><p>Given a string, find the length of the longest substring without repeating characters.<br/>
-For example, the longest substring without repeating letters for &ldquo;abcabcbb&rdquo; is &ldquo;abc&rdquo;, which the length is 3. For &ldquo;bbbbb&rdquo; the longest substring is &ldquo;b&rdquo;, with the length of 1.</p></blockquote>
-
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://bloghaoyan.github.io/blog/2013/11/24/leetcode-oj-006-zigzag-conversion/" data-via="" data-counturl="http://bloghaoyan.github.io/blog/2013/11/24/leetcode-oj-006-zigzag-conversion/" >Tweet</a>
+  
+  
+  
 </div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2013/11/22/leetcode-oj-003-longest-substring-without-repeating-characters/">Read on &rarr;</a>
-    </footer>
-  
 
-
-    </article>
-  
-  
-    <article>
+    
+    
+    <section>
+      <h1>Comments</h1>
+      <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+    </section>
+    
+    <ul class="pager">
       
-  <header class="page-header">
-    
-      <h1 class="entry-title"><a href="/blog/2013/11/21/leetcode-oj-002-median-of-two-sorted-arrays/">LeetCode OJ 002 Median of Two Sorted Arrays</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-11-21T20:59:00+08:00" pubdate data-updated="true">Nov 21<span>st</span>, 2013</time>
-        
-         | <a href="/blog/2013/11/21/leetcode-oj-002-median-of-two-sorted-arrays/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><blockquote><p><a href="http://oj.leetcode.com/problems/median-of-two-sorted-arrays/">Median of Two Sorted Arrays 两个已排序数组的中值</a></p></blockquote>
-
-<h3>Description:</h3>
-
-<blockquote><p>There are two sorted arrays A and B of size m and n respectively. <br/>
-Find the median of the two sorted arrays. The overall run time complexity should be O(log (m+n)).</p></blockquote>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2013/11/21/leetcode-oj-002-median-of-two-sorted-arrays/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
+      <li class="previous"><a class="basic-alignment left"
+        href="/blog/2013/11/23/leetcode-oj-005-longest-palidromic-substring/" title="Previous Post:
+        LeetCode OJ 005 Longest Palidromic Substring">&laquo; LeetCode OJ 005 Longest Palidromic Substring</a></li>
       
-  <header class="page-header">
-    
-      <h1 class="entry-title"><a href="/blog/2013/11/21/leetcode-oj-001-two-sum/">LeetCode OJ 001 Two Sum</a></h1>
-    
-    
-      <p class="meta">
-        
+      <li><a href="/blog/archives">Blog Archives</a></li>
+      
+    </ul>
+  </footer>
+</article>
 
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-11-21T13:27:00+08:00" pubdate data-updated="true">Nov 21<span>st</span>, 2013</time>
-        
-         | <a href="/blog/2013/11/21/leetcode-oj-001-two-sum/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><blockquote><p><a href="http://oj.leetcode.com/problems/two-sum/">Two Sum 两数之和</a></p></blockquote>
-
-<h3>Description:</h3>
-
-<blockquote><p>Given an array of integers, find two numbers such that they add up to a specific target number.<br/>
-The function twoSum should return indices of the two numbers such that they add up to the target, where index1 must be less than index2.<br/>
-Please note that your returned answers (both index1 and index2) are <em>not zero-based</em>.<br/>
-You may assume that each input would have exactly one solution.</p></blockquote>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2013/11/21/leetcode-oj-001-two-sum/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  <ul class="pager">
-    
-    <li><a href="/blog/archives">Blog Archives</a></li>
-    
-  </ul>
-</div>
 <aside class="sidebar-nav span3">
   
     <section class="well">
@@ -701,6 +372,7 @@ You may assume that each input would have exactly one solution.</p></blockquote>
   
 </aside>
 
+
     </div>
   </div>
   <footer role="contentinfo" class="page-footer"><hr>
@@ -716,7 +388,10 @@ You may assume that each input would have exactly one solution.</p></blockquote>
       var disqus_shortname = 'bloghaoyan';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://bloghaoyan.github.io/blog/2013/11/24/leetcode-oj-006-zigzag-conversion/';
+        var disqus_url = 'http://bloghaoyan.github.io/blog/2013/11/24/leetcode-oj-006-zigzag-conversion/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
