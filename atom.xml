@@ -4,7 +4,7 @@
   <title><![CDATA[Hao Yan's Blog]]></title>
   <link href="http://bloghaoyan.github.io/atom.xml" rel="self"/>
   <link href="http://bloghaoyan.github.io/"/>
-  <updated>2013-11-24T19:07:01+08:00</updated>
+  <updated>2013-11-24T22:04:50+08:00</updated>
   <id>http://bloghaoyan.github.io/</id>
   <author>
     <name><![CDATA[Hao Yan]]></name>
@@ -31,21 +31,22 @@ convert(&#8220;ABCDEFGHIJKLMNOPQRSTUVWXYZ&rdquo;, 6) should return &ldquo;AKUBJL
 <!--more-->
 
 
-<h3>描述：</h3>
+<h3>描述:</h3>
 
 <blockquote><p>字符串&#8221;ABCDEFGHIJKLMNOPQRSTUVWXYZ&#8221;按给定的行数以zigzag的模式书写，如下图：<br/>
 然后按行读，得到字符串&#8221;AKUBJLTVCIMSWDHNRXEGOQYFPZ&#8221;<br/>
 编程实现这种变换。<br/>
-convert(&ldquo;ABCDEFGHIJKLMNOPQRSTUVWXYZ&rdquo;, 6) 应返回 &ldquo;AKUBJLTVCIMSWDHNRXEGOQYFPZ&#8221;。</p></blockquote>
+convert(&ldquo;ABCDEFGHIJKLMNOPQRSTUVWXYZ&rdquo;, 6)应返回 &ldquo;AKUBJLTVCIMSWDHNRXEGOQYFPZ&#8221;。</p></blockquote>
 
-<h3>思路</h3>
+<h3>思路:</h3>
 
-<blockquote><p>一个向下和斜向上组合在一块称作一个zig，则zigSize = 2*nRow-2<em>(特殊情况，当nRows为1时，直接返回原字符串)</em>。<br/>
+<blockquote><p>一个向下和斜向上组合在一块称作一个zig，则zigSize = 2*nRow-2<br/>
+特殊情况:当nRows为1时，直接返回原字符串。<br/>
 每个zig的第一行和最后一行只有1个字符，其他行有2个字符。</p></blockquote>
 
-<h3>代码</h3>
+<h3>代码:</h3>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span>ZigZag Conversion</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -198,7 +199,7 @@ You may assume that the maximum length of S is 1000, and there exists one unique
 
 <h3>代码</h3>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span>Longest Palidromic Substring</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -365,7 +366,7 @@ Add the two numbers and return it as a linked list.</p></blockquote>
 
 <h3>代码</h3>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span>ListNode</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -383,7 +384,7 @@ Add the two numbers and return it as a linked list.</p></blockquote>
 </ul>
 
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span>Add Two Numbers</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -477,7 +478,7 @@ Add the two numbers and return it as a linked list.</p></blockquote>
 </ul>
 
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span>Add Two Numbers</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -597,7 +598,7 @@ For example, the longest substring without repeating letters for &ldquo;abcabcbb
 </ul>
 
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span>Longest Substring Without Repeating Characters</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -657,7 +658,7 @@ For example, the longest substring without repeating letters for &ldquo;abcabcbb
 </ul>
 
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span>Longest Substring Without Repeating Characters</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -757,7 +758,7 @@ Find the median of the two sorted arrays. The overall run time complexity should
 
 <h3>代码</h3>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span>Median of Two Sorted Arrays</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -880,7 +881,7 @@ You may assume that each input would have exactly one solution.</p></blockquote>
 
 <h3>代码</h3>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span>Two Sum</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>

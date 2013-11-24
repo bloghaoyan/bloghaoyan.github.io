@@ -4,7 +4,7 @@
   <title><![CDATA[Category: LeetCode | Hao Yan's Blog]]></title>
   <link href="http://bloghaoyan.github.io/blog/categories/leetcode/atom.xml" rel="self"/>
   <link href="http://bloghaoyan.github.io/"/>
-  <updated>2013-11-24T19:07:01+08:00</updated>
+  <updated>2013-11-24T22:04:50+08:00</updated>
   <id>http://bloghaoyan.github.io/</id>
   <author>
     <name><![CDATA[Hao Yan]]></name>
@@ -12,6 +12,108 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[LeetCode OJ 006 ZigZag Conversion]]></title>
+    <link href="http://bloghaoyan.github.io/blog/2013/11/24/leetcode-oj-006-zigzag-conversion/"/>
+    <updated>2013-11-24T17:21:00+08:00</updated>
+    <id>http://bloghaoyan.github.io/blog/2013/11/24/leetcode-oj-006-zigzag-conversion</id>
+    <content type="html"><![CDATA[<blockquote><p><a href="http://oj.leetcode.com/problems/zigzag-conversion/">ZigZag Conversion 曲折转换</a></p></blockquote>
+
+<h3>Description:</h3>
+
+<blockquote><p>The string &ldquo;ABCDEFGHIJKLMNOPQRSTUVWXYZ&rdquo; is written in a zigzag pattern on a given number of rows like this: (you may want to display this pattern in a fixed font for better legibility)<img src="http://d.pcs.baidu.com/thumbnail/a9ba33f12fcfe6a7d9e3f315261bce59?fid=1143547140-250528-1204358903&amp;time=1385290718&amp;rt=pr&amp;sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-crgW%2FKI4NY4Q%2BzRCFy5%2B9GxVzNA%3D&amp;expires=8h&amp;r=771500886&amp;size=c850_u580&amp;quality=100" alt="zigzag.png" /><br/>
+And then read line by line: &ldquo;AKUBJLTVCIMSWDHNRXEGOQYFPZ"<br/>
+Write the code that will take a string and make this conversion given a number of rows:<br/>
+string convert(string text, int nRows);<br/>
+convert("ABCDEFGHIJKLMNOPQRSTUVWXYZ&rdquo;, 6) should return &ldquo;AKUBJLTVCIMSWDHNRXEGOQYFPZ&rdquo;.</p></blockquote>
+
+<!--more-->
+
+
+<h3>描述:</h3>
+
+<blockquote><p>字符串"ABCDEFGHIJKLMNOPQRSTUVWXYZ"按给定的行数以zigzag的模式书写，如下图：<br/>
+然后按行读，得到字符串"AKUBJLTVCIMSWDHNRXEGOQYFPZ"<br/>
+编程实现这种变换。<br/>
+convert(&ldquo;ABCDEFGHIJKLMNOPQRSTUVWXYZ&rdquo;, 6)应返回 &ldquo;AKUBJLTVCIMSWDHNRXEGOQYFPZ"。</p></blockquote>
+
+<h3>思路:</h3>
+
+<blockquote><p>一个向下和斜向上组合在一块称作一个zig，则zigSize = 2*nRow-2<br/>
+特殊情况:当nRows为1时，直接返回原字符串。<br/>
+每个zig的第一行和最后一行只有1个字符，其他行有2个字符。</p></blockquote>
+
+<h3>代码:</h3>
+
+<p>```cpp ZigZag Conversion
+class Solution {
+public:</p>
+
+<pre><code>string convert(string s, int nRows) {
+    // IMPORTANT: Please reset any member data you declared, as
+    // the same Solution instance will be reused for each test case.
+    if (s == "") {
+        return "";
+    } else if (nRows == 1) {
+        return s;
+    }
+    int zigSize = 2 * nRows - 2;
+    char **p = new char *[nRows];
+    int nColumn = 2 * (s.size() / zigSize + 1);
+    for (int i = 0; i &lt; nRows; i++) {
+        p[i] = new char[nColumn];
+        for (int j = 0; j &lt; nColumn; j++) {
+            p[i][j] = '#';
+        }
+    }
+    int row = 0;
+    int column = 0;
+    int j = 0;
+    for (int i = 0; i &lt; s.size(); i++) {
+        j = i % zigSize;
+        if (j &lt; nRows) {
+            row = j;
+        } else {
+            row = zigSize - j;
+        }
+        if (j == 0 || j == nRows - 1) {
+            column = i / zigSize;
+        } else {
+            if (j &lt; nRows) {
+                column = (i / zigSize) * 2;
+            } else {
+                column = (i / zigSize) * 2 + 1;
+            }
+        }
+        p[row][column] = s[i];
+    }
+
+    string result(s.size(), '#');
+    int pResult = 0;
+    for (int i = 0; i &lt; nRows; i++) {
+        for (int j = 0; j &lt; nColumn; j++) {
+            cout &lt;&lt; p[i][j] &lt;&lt; " ";
+        }
+        cout &lt;&lt; endl;
+    }
+    for (int i = 0; i &lt; nRows; i++) {
+        for (int j = 0; j &lt; nColumn; j++) {
+            if (p[i][j] == '#') {
+                break;
+            } else {
+                result[pResult++] = p[i][j];
+            }
+        }
+    }
+    return result;
+}
+</code></pre>
+
+<p>};
+```</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[LeetCode OJ 005 Longest Palidromic Substring]]></title>
@@ -39,7 +141,7 @@ You may assume that the maximum length of S is 1000, and there exists one unique
 
 <h3>代码</h3>
 
-<p>```cpp
+<p>```cpp Longest Palidromic Substring
 class Solution {
 public:</p>
 
@@ -150,7 +252,7 @@ Add the two numbers and return it as a linked list.</p></blockquote>
 
 <h3>代码</h3>
 
-<p>```cpp
+<p>```cpp ListNode
 struct ListNode {</p>
 
 <pre><code>int val;
@@ -166,7 +268,7 @@ ListNode(int x) : val(x), next(NULL) {}
 </ul>
 
 
-<p>```cpp
+<p>```cpp Add Two Numbers
 class Solution {
 public:</p>
 
@@ -220,7 +322,7 @@ public:</p>
 </ul>
 
 
-<p>```cpp
+<p>```cpp Add Two Numbers
 class Solution {
 public:</p>
 
@@ -302,7 +404,7 @@ For example, the longest substring without repeating letters for &ldquo;abcabcbb
 
 <ul>
 <li>O(n<sup>2</sup>)方法
-<code>cpp
+<code>cpp Longest Substring Without Repeating Characters
 class Solution {
 public:
   int lengthOfLongestSubstring(string s) {
@@ -331,7 +433,7 @@ public:
 };
 </code></li>
 <li><p>O(n)方法
-```cpp
+```cpp Longest Substring Without Repeating Characters
 class Solution {
 public:
   int lengthOfLongestSubstring(string s) {
@@ -401,7 +503,7 @@ Find the median of the two sorted arrays. The overall run time complexity should
 
 <h3>代码</h3>
 
-<p>```cpp
+<p>```cpp Median of Two Sorted Arrays
 class Solution {
 public:</p>
 
@@ -439,92 +541,6 @@ public:</p>
 
     delete[] temp;
     return result;
-}
-</code></pre>
-
-<p>};
-```</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[LeetCode OJ 001 Two Sum]]></title>
-    <link href="http://bloghaoyan.github.io/blog/2013/11/21/leetcode-oj-001-two-sum/"/>
-    <updated>2013-11-21T13:27:00+08:00</updated>
-    <id>http://bloghaoyan.github.io/blog/2013/11/21/leetcode-oj-001-two-sum</id>
-    <content type="html"><![CDATA[<blockquote><p><a href="http://oj.leetcode.com/problems/two-sum/">Two Sum 两数之和</a></p></blockquote>
-
-<h3>Description:</h3>
-
-<blockquote><p>Given an array of integers, find two numbers such that they add up to a specific target number.<br/>
-The function twoSum should return indices of the two numbers such that they add up to the target, where index1 must be less than index2.<br/>
-Please note that your returned answers (both index1 and index2) are <em>not zero-based</em>.<br/>
-You may assume that each input would have exactly one solution.</p></blockquote>
-
-<!--more-->
-
-
-<h3>描述：</h3>
-
-<blockquote><p>给定一个数组，找出其中两个数加起来等于一个目标数字。<br/>
-函数twoSum返回这两个数的索引值，其中index1小于index2。<br/>
-索引值从1开始而不是0。<br/>
-每个输入有且只有一个解。</p></blockquote>
-
-<h3>Input:</h3>
-
-<blockquote><p>numbers={2, 7, 11, 15}, target=9</p></blockquote>
-
-<h3>Output:</h3>
-
-<blockquote><p>index1=1, index2=2</p></blockquote>
-
-<h3>思路</h3>
-
-<blockquote><ol>
-<li>暴力法：算法复杂度为O(n<sup>2</sup>)</li>
-<li>先排序，再二分查找：算法复杂度O(nlogn)</li>
-</ol>
-</blockquote>
-
-<h3>代码</h3>
-
-<p>```cpp
-class Solution {
-public:</p>
-
-<pre><code>int bSearch(vector&lt;int&gt; &amp;numbers, int other, int low, int high) {
-    if (low&gt;high) {
-        return -1;
-    }
-    int mid = (low+high)/2;
-    if (other==numbers[mid]) {
-        return mid;
-    } else if (other&gt;numbers[mid]) {
-        bSearch(numbers, other, mid+1, high);
-    } else {
-        bSearch(numbers, other, low, mid-1);
-    }
-}
-
-vector&lt;int&gt; twoSum(vector&lt;int&gt; &amp;numbers, int target) {
-    // IMPORTANT: Please reset any member data you declared, as
-    // the same Solution instance will be reused for each test case.
-    vector&lt;int&gt; backup = numbers;
-    sort(numbers.begin(), numbers.end());
-    for(int i=0; i&lt;backup.size(); i++) {
-        int j = bSearch(numbers, target-backup[i], 0, backup.size()-1);
-        if(j!=-1) {
-            vector&lt;int&gt; result;
-            result.push_back(i+1);
-            for(int k=0; k&lt;backup.size(); k++) {
-                if(backup[k]==numbers[j] &amp;&amp; k!=i) {
-                    result.push_back(k+1);
-                }
-            }
-            return result;
-        }
-    }
 }
 </code></pre>
 
