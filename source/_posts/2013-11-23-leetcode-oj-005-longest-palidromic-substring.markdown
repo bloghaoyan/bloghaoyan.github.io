@@ -10,7 +10,7 @@ categories: LeetCode
 ###Description:
 >Given a string S, find the longest palindromic substring in S.   
 >You may assume that the maximum length of S is 1000, and there exists one unique longest palindromic substring.
-
+<!--more-->
 ###描述：
 >给定一个字符串S，找出S中的最长回文子串。  
 >你可以假设字符串的最大长度为1000，其中有且只有一个最长回文子串。
